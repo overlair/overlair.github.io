@@ -1,0 +1,14 @@
+{
+	"version": 3,
+	"file": "main.css",
+	"sources": [
+		"main.scss",
+		"_sass/main.scss"
+	],
+	"sourcesContent": [
+		"@import \"main\";\n",
+		"$backgroundColor: #000000;\n$bodyColor: #ffffff;\n$bodyFont: Palatino, \"Palatino Linotype\", \"Palatino LT STD\";\n\nbody {\n    background: $backgroundColor;\n    color: $bodyColor;\n    font-family: $bodyFont;\n    margin: auto;\n    width: 100%;\n    padding: 100px 10px 10px 10px;\n    text-align: center;\n}\n\nbutton {\n    width: 50px;\n    height: 50px;\n}\n\nbutton-row {\n    vertical-align:middle; \n}\n\nh1 {\n    font-size: 61pt;\n}\n\nh3 {\n    font-size: 31pt;\n    opacity: 0.5;\n}\n\n"
+	],
+	"names": [],
+	"mappings": "ACIA,AAAA,IAAI,CAAC,EACD,UAAU,EALI,OAAO,EAMrB,KAAK,EALG,OAAO,EAMf,WAAW,EALJ,QAAQ,EAAE,mBAAmB,EAAE,iBAAiB,EAMvD,MAAM,EAAE,IAAI,EACZ,KAAK,EAAE,IAAI,EACX,OAAO,EAAE,oBAAoB,EAC7B,UAAU,EAAE,MAAM,GACrB;;AAED,AAAA,MAAM,CAAC,EACH,KAAK,EAAE,IAAI,EACX,MAAM,EAAE,IAAI,GACf;;AAED,AAAA,UAAU,CAAC,EACP,cAAc,EAAC,MAAM,GACxB;;AAED,AAAA,EAAE,CAAC,EACC,SAAS,EAAE,IAAI,GAClB;;AAED,AAAA,EAAE,CAAC,EACC,SAAS,EAAE,IAAI,EACf,OAAO,EAAE,GAAG,GACf"
+}
