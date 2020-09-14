@@ -7,7 +7,6 @@ title: "overlair"
 # overlair
 
 
-### the desktop, digitally realized
-
+### a digital workspace, finally realized
 
 
