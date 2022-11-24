@@ -548,12 +548,21 @@ video {
 
 
  @media only screen and (max-width:480px) {
-            img {
-                display:block;
-                float:none;
-                margin:0 auto 20px !important;
-            }
-        }
+      img {
+          display:block;
+          float:none;
+          margin:0 auto 20px !important;
+      }
+
+      blockquote {
+         margin: 2rem 2rem 2rem 2rem;
+      }
+
+      main {
+        padding: 1rem;
+
+    }
+}
 
 figure {
   margin: 0;
