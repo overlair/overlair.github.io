@@ -1,0 +1,199 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Something to LATCH Onto</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+			<header>
+				<nav>
+						<div style="align-items: baseline; height: 100%;">
+						<a href="../" >
+							<h1  class="overlair-name"> 
+								overlair
+							</h1>
+						</a>
+							<div>
+							<a href="../about/"> 
+								about
+							</a>
+							
+							<a class = "current-nav-tab"  href="../writing/"> 
+								writing
+							</a>
+							<a href="../projects/"> 
+								projects
+							</a>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<main>
+				<h2> Something to LATCH Onto </h2>
+				
+
+<p id="f2917dd2-dddb-4320-8804-61b2ad40f570" class="">Richard Saul Wurman is an architect, graphic designer, the founder of the TED conferences and a prolific author. Wurman’s career has seen him work intensely with spatial, graphical and symbolic information. Clearly an expert in information organization, Wurman uses a <a href="https://www.informit.com/articles/article.aspx?p=130881&amp;seqNum=6">surprisingly simple technique</a> to organize general information—the five categories of Location, Alphabet, Time, Category, or Hierarchy, or LATCH.</p><h1 id="1b0d680b-e7f6-4bbe-8781-3643d335b19a" class="">LATCH</h1>
+
+<blockquote>
+		<mark>Information may be infinite, however...the organization of information is finite as it can only be organized by LATCH: Location, Alphabet, Time, Category, or Hierarchy. </mark>
+		<br> 
+		<cite> <strong> Richard Saul Wurman </strong> </cite>
+	</blockquote>
+
+<p id="d2edfdbe-5119-4fea-acc7-9091d5c6cfa4" class="">We organize to create order. “Order” comes from the Latin <a href="https://www.etymonline.com/word/order"><em>ordo</em></a>, meaning “row, line, rank; series, pattern, arrangement, routine”.  Out of the chaos of “infinite information”, we can create meaning and sense through order, by addressing patterns, rankings, arrangements and series.</p>
+
+	<p id="728dfdba-2dfc-497e-a93f-04cc35803e98" class="">LATCH is a means of creating this order, by relying on the physical aspects of location and time, the lingual aspects of the alphabet and relational aspects category and hierarchy. Using these physical, lingual and relational components, we can “ organize [a type of information object, like cars,] by place of manufacture (location), year (time), model (category), or Consumer Reports ratings (hierarchy)”. </p>
+
+	<p id="30d6117f-ff44-48f4-a0e5-adc013d6d00c" class="">Wurman finds that these components, or “modes”, are “applicable to almost any endeavor”. Modes “are the framework upon which annual reports, books, conversations, exhibitions, directories, conventions, and even warehouses are arranged”, from “personal file cabinets to multinational corporations”.</p>
+
+	<h1 id="00232aa3-d6bf-4a45-a11a-c594505855cd" class="">Information Retrieval</h1>
+
+	<p id="7bddc972-7082-4b34-aabb-88b341e166a3" class="">An active field within information science, <a href="https://en.wikipedia.org/wiki/Information_retrieval">information retrieval</a> describes the process of querying an information space (”domain”) and gathering relevant information sources.</p>
+
+	<p id="fe29f836-201f-4c55-9606-6ebec26edb46" class="">Most commonly, information retrieval operates by way of search, sort, and filter. Consider a Google search, comprised of some search text, and a time filter. Or a search in your file system, sorted by file size and filtered by file type. </p>
+
+	<p id="02f4efc3-8cc1-4eed-9aaa-c50964b6918f" class="">Per Wurman, once “the categories are established, the information about [a given domain] is easily retrievable”. This retrieval process is the mapping function from a large body of information to a smaller one, by way of a query. A query, or <em>question</em>, is something we can ask to receive a more specific set of information. Queries were once given to librarians, secretaries and archivists, but now are often carried out by digital means.</p>
+
+	<h1 id="8bec9e71-098f-4b94-9206-f327c9b9071e" class="">LATCH Software</h1>
+
+	<blockquote>
+		<mark>Once you have a sense of organization, however casual, you can relax with that knowledge and begin to examine the information from various vantage points, which will enable you to understand the relationship between bodies of information. </mark>
+		<br> 
+		<cite> <strong> Richard Saul Wurman </strong> </cite>
+	</blockquote>
+
+<p id="b3fa7c85-9139-442e-9400-84a43fe52d28" class="">LATCH exists outside of the medium it is implemented in, as a general methodology for approaching information architecture and retrieval. The data structures, dynamic displays and computational power of the computer make it well-suited to implementing LATCH-based information organizers. We can address two components of these softwares here: their models and interfaces</p>
+
+<h2 id="fd50a31d-e76e-423c-87d6-6c88af0d06d4" class="">Models</h2>
+
+<p id="ffe491df-3a82-4eff-897a-997f1be4e79f" class="">When we put information inside of a computer, we do so with a<em>format. </em>This “structuring” is how <em>data structures</em> to make sense to the computer, and how functionality like comparison and querying is implemented. Let’s consider possible models for LATCH. </p>
+
+<h3 id="0759e2f8-0efa-47c0-b283-652c3fdf3985" class="">Location</h3>
+
+<p id="1140fba8-a18a-4230-a24b-d16d49bc61b3" class="">We commonly think of GPS (global positioning system) data, which can be expressed by two numbers: latitude and longitude. Using these two values</p>
+
+<p id="616efbc0-0b12-425b-9a4e-dd4bf01ec428" class="">Additionally, we can also use more complicated datas tructures,  like the <a href="https://en.wikipedia.org/wiki/Geohash">geohash</a>, which reduces the two terms of the GPS to one hash, giving locations unique identifiers and making them friendlier towards databases. Using a single index speeds up queries, while still providing approximate proximity searches. </p>
+
+<h3 id="a31272e7-d291-476f-a25b-3dcfc9352d93" class="">Alphabet</h3>
+
+
+<p id="af764175-0429-44e3-8c84-6cf680588b1e" class="">Letters take on two main forms: plain and rich. Plain text, or <em>strings, </em>are arrays of un-styled characters. Rich strings also contain styling in addition to characters, allowing for different fonts, sizes, colors and more. </p>
+
+<p id="aae91072-9c26-4e44-84b6-dd194f61ab8e" class="">This added style makes is more difficult to store in databases, and provides little value in searching and comparisons, at the machine level. At the human level, this styling is incredibly important for making sense of the text. </p>
+
+<p id="fc9fb33e-ec2d-4bf7-872f-a3ffeef542a7" class="">We’ll often store both forms, a plain-text version to ease querying, and a rich-text version to ease comprehension. </p>
+
+<h3 id="79a3feed-2d25-41cb-a7cd-3342b55af670" class="">Time</h3>
+
+<p id="37f4fe85-8b8c-4742-85be-9cffeb4ac159" class="">Most languages and databases provide a time-specific data structure. SQL provides four: for only dates, only times, dates and times, and years. </p>
+
+<h3 id="22f7b8c4-9eef-4797-8f37-716e6d9235c8" class="">Category</h3>
+
+<p id="be2ab652-89dd-4d5e-bc79-c25a146d96a0" class="">We can think of two different types of category: static and dynamic. We can represent static categories with enums. For dynamic categories (category options can change), we’ll want to model these with one-many relationships in databases (<em>one</em> information object can participate in <em>many </em>categories).</p>
+
+<h3 id="1412ec31-122c-4d2c-ae9e-24f87d43fb5f" class="">Hierarchy</h3>
+
+<p id="14eba98e-5729-4474-b7f2-2689b3ffac71" class="">Finally, we can represents hierarchies (or weighted rankings) with single-value numbers (Ints, Doubles, Floats). </p>
+
+<h2 id="a3fa4f20-635c-4873-a36c-94e7795ae2b6" class="">Interfaces</h2>
+
+<p id="84123294-8d45-4c69-9f96-c5835b520c7f" class="">When we want to visualize and allow interactions with these <em>data structures</em>, we use <em>interfaces</em>. Here, we can address three interfaces that I believe most strongly fit the LATCH system.</p>
+
+<h3 id="cc2864ef-9b10-4e63-b87f-6cfc77d3fd0d" class="">Lists</h3>
+			
+
+<p id="58fdddb6-44eb-4c76-81d3-c34bca0303b7" class="">We should be very familiar with lists in our computers: lists of files in our file system, lists of links in our search results, lists of apps in our docks, and on. Lists take a set of information and present an array of objects, aligned along an axis (often vertical). </p>
+	<figure style="width: 30%; padding-left: 35%;">
+					<a href="../../images/LATCH-list.png">
+						<img  src="../../images/LATCH-list.png">
+					</a>
+				</figure>
+<p id="303e29b2-6bd1-4160-82b3-51a28a83b274" class="">When we consider the components of LATCH, those of <em>hierarchy</em>, <em>alphabet</em> and <em>time</em> map most directly to the list interface. Computer users will be very familiar with sorting information alphabetically and chronologically (such as by name or created date), as well as hierarchically (by file size). Non-computer users will be very familiar with sorting information alphabetically in phone books and chronologically along timelines.</p>
+
+<p id="a32558fb-523e-4cd3-9bee-feda2d86b42c" class="">Hierarchy may be the most unfamiliar to us. Wurman describes it as an organization of “items by magnitude from small to large, least expensive to most expensive, by order of importance”. When we want “to assign value or weight to…information”, we reach for hierarchy. </p>
+
+<p id="6900df8e-1db4-48b0-8274-32a4ea8fca69" class="">Each of these components allows for “greater than” and “less than” comparisons be made between items. A given letter can only come before or after a different one, a given time can only fall before or after another one, and a given weight can be more or less than another. Thus, we can easily build one dimensional organizational structures—like phone books and timelines—on top of letters, times and values. </p>
+
+<p id="78d54b61-34f0-481e-b108-b3e627d15629" class="">Most of these digital displays through away the notion of “how much greater/less” when laying out, using a consistent layout scheme no matter than distance between neighbors. We can think of times when we might want to use to vary position and spacing based on how far apart neighbors are (like on a timeline). Such displays are easy to create in software, but may require a different set of interactions so users don’t waste time scrolling spread apart items. </p>
+
+<h3 id="f39a1cd2-7c8b-4bd5-8ed8-bd4539c55dc6" class="">Spatial Canvas</h3>
+
+	<figure style="width: 30%; padding-left: 35%;">
+					<a href="../../images/LATCH-canvas.png">
+						<img  src="../../images/LATCH-canvas.png">
+					</a>
+				</figure>
+
+<p id="ce156016-b19c-4afe-a231-7f3c635845ea" class="">Maps have undergone one of the greatest technological evolutions in history in the past decades. Setting the computer and smartphone aside, the change in human-map relation is such a short time is nothing short of miraculous. We have become so accustomed to the interactive ease of the panning, zooming map displays on our devices that paper maps feel like a relic. </p>
+
+<p id="05c0357a-7f15-4c84-b20b-59c7d42ee34d" class="">It is in these displays that we find the ideal interface for the spatial, or locational, dimensions of information. When we compare two pieces of location data, like two countries or GPS coordinates, we find it hard to order them linearly. Location is by nature multi-dimensional, and as such, we need multi-dimensional displays to properly present location-based data. </p>
+
+<p id="e93cd0c1-a09e-4948-96b0-31c911d04a34" class="">Spatial canvas is the general term for these panning and zooming displays like maps. Otherwise known as “ZUIs”, or zooming user interface, these displays allow us to interact with 2-, 3- and higher-dimensional data. When we consider places, we need some space for them to exist. ZUIs allow for this space. The notion of “<a href="https://en.wikipedia.org/wiki/Infinite_canvas">infinite canvases</a>” combined with the dynamic, hyper-linked nature of digital data allows for arbitrary space creation, making ZUIs the ideal candidate for location-based, or spatial, comparisons. </p>
+
+<h3 id="5ac879e3-7fa7-492f-80cf-4c7cc5c67921" class="">Tag</h3>
+
+<p id="96dfb5b2-2d6f-40e0-841e-fd3a588dc26e" class="">While lists and spatial canvas provide screen space to layout data structures, tags give us space of a different kind—”folder” or conceptual space into which we can place items. </p>
+
+<p id="ce45d078-af7b-4310-9252-3fe873ebbef5" class="">Tags are often named with short phrases, sometimes including or consisting solely of iconic representations (like emojis). We can think of tags like we might stickers—small, label objects that we use to decorate another object. In information systesm, these <em>decorations </em> are the categories we want to “stick” an item in.</p>
+				<figure style="width: 30%; padding-left: 35%;">
+					<a href="../../images/LATCH-tag.png">
+						<img  src="../../images/LATCH-tag.png">
+					</a>
+				</figure>
+
+<p id="6c543e18-084b-4565-bdd9-41817af30cd2" class="">We often represent an item’s tags by placing small badges around the item. As well, we might want to view a tag’s items. We can do so using lists or spatial canvases.</p>
+
+<h2 id="86ef3673-d574-4d79-9259-e3ce15fd68b7" class="">Points, Planes, Paths</h2>
+
+<p id="924de30b-2c2e-4370-bb88-afcdfd7d34fc" class="">As a closing metaphor, we can take these models and interfaces, and think about them in terms of Points, Planes and Paths. </p>
+
+<p id="0d601597-e481-4494-b27a-ed781ecdfdc5" class="">We can think of our units of information as <em>points</em>—our files, links, media, documents, “resources”—or content drawn from global or local repositories. In order to arrange, order and ease access to these units of content, we make use of planes—containers for this content. </p>
+
+<p id="5ef4bc42-81f7-4c19-94e5-9e10732f7df0" class="">In the analog world, we can think of shelves and desks being used to arrange media and documents. The shelf, desk and drawer are the <em>planes</em> that arrange our <em>points</em>—our books, movies, music, papers and files. In the digital world, we can think of the different <em>planes</em>—browsers, editors, finders—that organize our <em>points</em>.
+
+</p><p id="527c550a-cf31-4a36-b2f1-7e7f1dba0c9f" class="">These planes serve not just to arrange points, but to do so meaningfully, according to some aspect, or aspects of the information—spatial (location), lingual (alphabet), temporal (time), categorical (category) or relational (hierarchy). These aspects help us describe, find, sort, classify, compare and group information.</p>
+
+<p id="4e64c160-955f-432d-921d-973c09f9e5ba" class="">If we consider the book, we find that it contains this whole set of aspects, along with the visual aspects from pictures (graphical) and color (spectral). On the cover of a book, words, colors, pictures and a Dewey Decimal classification help to identify the book among the larger body of literature.   Inside the book, the layout of words and pictures, and the inclusion of publishing dates, revision dates references and sources all provide further descriptions of the “point”—the book. </p>
+
+<p id="e44bfec1-1aed-4c06-9e82-55d4e7d24314" class="">Like the book, our digital information needs to be capable of being decorated in the same way, with words, pictures, colors, dates, categories, references, and versions. These not only make our information more retrievable, but also more rich and representative. </p>
+
+<p id="76abbf08-5630-46ac-b7d0-3e105a874b92" class="">In addition to points and planes, we can think of the different transforms we can apply to them. We can call these transforms “paths”, and consider the different means </p>
+
+<h2 id="55cc3cb1-9011-4811-b065-7aca73f26bfd" class="">3POs</h2>
+
+<p id="16f6d2bb-879c-4491-a76b-8157b4188c5e" class="">A simplified model of the computer has the “operating system” as a transient set of planes, the “file system” as a persistent set of points and the “applications” as a consistent set of paths. </p>
+
+<p id="76d0f90e-b925-4ea4-a32d-cc83379258eb" class="">In many ways, this simple model approximates what occurs in the analog world. We store away material that we arrange( in drawers, on shelves and walls), and bring them into workspaces, where we use tools (pens, scissors, tape, hammer, axe, lab equipment) to do some work (change something, extract information, record thoughts, build a model).</p>
+
+<p id="11638684-1026-4867-b15e-2edc590cff27" class="">In the physical world, the process of engaging with materials and spaces places a heavy burden on the human. To alleviate the burden of remembering, locating, recording, and gathering information, we may use labor (secretary, librarian) or forms of sorting (containers, arrangements, indices), or both. </p>
+
+<p id="635250bc-8042-4002-b7e7-e49a53d8f22b" class="">In this, operating systems making it <em>easier</em> to operate on information by decreasing the effort and time needed to gather things, process and share them. It eases the work of record-keeping and provides dynamic displays and interfaces for searching, sorting and filtering, enhancing our abilities to track and trace down things. </p>
+
+<h1 id="9f0fc673-5ca7-4a26-8c97-b8f1a9e8497e" class="">Wrap Up</h1>
+
+<p id="f87d36ca-56ec-4f30-896d-64e46a65ea5a" class="">Each of these levels: point, plane, path gives us something to grasp, to <em><em><em><em><em><em>latch </em></em></em></em></em></em>onto in our digital worlds. Points describe individual units, planes describe the means by which we arrange and access them, and paths give us the means by which we manipulate the units, arrangements and accessors. Together, they allow us to describe, edit and store arbitrary information with a  different physics than that of the physical world. </p>
+
+<p id="3e964604-4ad9-491d-b471-4da3a220abce" class="">The LATCH methodology gives us ways to shape these points, planes and paths according to the spatial, lingual, temporal, categorical and hierarchical aspects of their information. In doing so, we improve our ability to organize and understand the world around us. In doing so with computers, we make this ability more efficient. </p>
+
+<h2 id="270ac8f1-1b4d-4a80-bc19-ff62bb9cb69b" class="">References</h2>
+
+<ul id="e0948888-c167-4d15-af73-fac7f6580071" class="bulleted-list">
+		<li style="list-style-type:disc"><a href="https://parsonsdesign4.wordpress.com/resources/latch-methods-of-organization/">https://parsonsdesign4.wordpress.com/resources/latch-methods-of-organization/</a></li>
+
+		<li style="list-style-type:disc"><a href="https://infovis-wiki.net/wiki/Five_Hat_Racks">https://infovis-wiki.net/wiki/Five_Hat_Racks</a></li>
+		<li style="list-style-type:disc"><a href="https://www.informit.com/articles/article.aspx?p=130881&amp;seqNum=6">https://www.informit.com/articles/article.aspx?p=130881&amp;seqNum=6</a></li>
+	</ul>
+
+
+
+	</main>
+
+			<footer>
+				2022 John Knowles
+			</footer>
+
+	</body>
+
+</html>

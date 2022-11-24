@@ -1,0 +1,506 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>A SIMPLER Architecture</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+			<header>
+				<nav>
+						<div style="align-items: baseline; height: 100%;">
+						<a href="../" >
+							<h1  class="overlair-name"> 
+								overlair
+							</h1>
+						</a>
+							<div>
+							<a href="../about/"> 
+								about
+							</a>
+							
+							<a class = "current-nav-tab"  href="../writing/"> 
+								writing
+							</a>
+							<a href="../projects/"> 
+								projects
+							</a>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<main>
+				<h2> A SIMPLER Architecture </h2>
+				
+<p id="e69672b7-4dcd-46ee-b6f6-dbb0f13928ab" class="">SwiftUI is an excellent framework for application development, especially for prototyping. But in order to build good apps, we need sound architectures. I found that architectures like MVC and MVI—Model, View, Controller, and Model, View, Intent—were insufficient for my purposes, and came up with SIMPLER as a way to organize some of the patterns I was seeing, most strongly in <a href="https://gameprogrammingpatterns.com/contents.html">game development patterns</a>, the <a href="https://guide.elm-lang.org/architecture/">Elm architecture </a>and <a href="https://github.com/subconsciousnetwork/ObservableStore">ObservableStore</a>. </p>
+
+<p id="cfef45f1-a991-403f-ba0e-d0860647f408" class="">New technologies like <a href="https://developer.apple.com/xcode/swiftui/">SwiftUI</a>, <a href="https://developer.apple.com/documentation/combine">Combine</a> and <a href="https://github.com/realm/realm-swift">Realm</a> allow more convenient ways of packaging views, models, event handling and asynchronous processes than ever. SIMPLER reformulates the traditional<em> model-view-controller</em> paradigm to account for these new means of app development, instead of relying on the concepts of <em>scenes, interfaces, models, pipes, logic, events </em>and<em> resources.</em> </p>
+
+<h3 id="5a684b03-38ee-432a-9911-e2437b1f22dd" class="">MVC Architecture</h3>
+
+
+				<figure>
+					<a href="../../images/SIMPLER-architecture-mvc.png">
+						<img src="../../images/SIMPLER-architecture-mvc.png">
+					</a>
+				</figure>
+	<p id="6b42612a-b981-449c-9cad-eb2adaf3ba03" class="">When we build applications, we bring together systems of information, presentation and interaction. Apps take information entities, present them to the user on screens, and allow the user to interact with them. In doing so, developers will often split their systems into “objects” and categorize these objects into the categories of data (information), display (presentation) and update (interaction). </p>
+
+
+
+	<p id="8a46bba0-d788-4f41-b424-3fd4305cd0f2" class="">App architectures are meant to aid in this categorization process, giving us patterned ways to sort and structure these objects. Specifically, they answer questions about where to store and how to update the app’s data, how to present that data on screen, and how to distribute logic and handle interactions. </p>
+
+
+<p id="6688ec92-0b7a-4904-9d16-2282882e3516" class="">The canonical architecture is MVC, or Model-View-Controller, which is a direct mapping from the main aspects of an app: information, presentation and interaction. Models handle information, views take care of presentation, and the controller is in charge of interaction. </p>
+
+<p id="91d53b69-6f47-4ace-be16-20618bed9ae4" class="">While MVC provides an adequate understanding of apps at their highest level, it fails to inform us fully of their “architectures”. Instead, developers are left to figure out how to connect up these pieces and make them work together. While models and views are fairly clear cut in their handlings of data and displays, the controller is more nebulous in its purpose, often becoming the de facto location for everything else. </p>
+
+<p id="aa2dcde5-c0e4-4b20-9214-718fd84e1576" class="">Other architectures have attempted to address this “MVC”, or Massive View Controller, problem by decomposing the controller. MVVM (Model, View, View Model) prescribes the use of more modular view models, however it doesn’t make it any clearer how we should approach using these. VIPER (View, Interactor, Presenter, Entity, Router) goes a step further and breaks controllers into Interactors (business logic), Presenters (view logic and user input) and Routers (navigation).</p>
+
+<p id="571422b5-bae0-44b3-bd39-47c3abe3e43d" class="">I’d like to take a similar approach to VIPER, decomposing MVC into a clearer, more descriptive set of objects—a SIMPLER set, if you will. Particularly, I’d like to build off the patterns exhibited in Redux, Elm and reactive frameworks in general, which attempt to provide the app developer with a simpler experience, and apply these in the context of a SwiftUI application. While tuned specifically for SwiftUI, I believe the principles hold for other frameworks. </p>
+
+<h3 id="b556aa47-26a2-43b7-8adc-218baf79856f" class="">Reactive Frameworks</h3>
+
+<p id="f336f6e7-8512-44c1-aef6-02876290f7cb" class="">As stated above, apps present information entities and allow interactions with them. These interactions produce updates which change the information entities (and in turn, change the presentation). We call this whole process the “update loop”. </p><p id="14cc9126-2fbb-45cb-ba39-f89fef2e9dfb" class="">Reactive frameworks are driven by a desire to simplify the update loops within applications, by eliminating the need to manually refresh the displays. Instead, displays form dependencies with data, and <em><em><em><em><em>react</em></em></em></em></em> to their changes by automatically refreshing. </p>
+
+	<figure>
+					<a href="../../images/SIMPLER-architecture-update.png">
+						<img src="../../images/SIMPLER-architecture-update.png">
+					</a>
+				</figure>
+
+<p id="efe28d3c-14ff-444b-b877-e03c0eff0b47" class="">We can explore a model of this update loop here, which transforms human input into app events, into behaviors applied to objects, resulting in updated content being shown to the user. The user <em>sees, </em>the user <em>does</em>, then the user <em>sees, </em>and on and on. </p>
+
+
+
+<figure></figure>
+
+<h4 id="2766e4c9-aec2-46e9-8bcd-35d2c286419e" class="">An Architecture for Reactive Frameworks</h4>
+
+<blockquote id="94f42b93-0915-4637-b4b8-0ccc25279359" class="">
+	<mark>Design is separating into things that can be composed.</mark>
+	<br>
+	<cite><strong>Rich Hickey</strong></cite>
+</blockquote>
+
+<p id="6049697c-c0d5-4c75-8fc3-7b2f695ce386" class="">When we thought about designing applications in <a href="mobile-design.html">Mobile Design</a>, we broke apps down into a set of <em>things</em>: <strong>Text & Graphics, Objects, Behaviors, Events, Gestures</strong>, and <strong>Modes</strong>.</p>
+
+<p id="3bd6feac-2ce8-48d8-bf3a-abeda1da13bc" class="">Architecture gives us ways to <em><em><em><em><em><em><em>compose </em></em></em></em></em></em></em>these things, to put them together into a unified whole. This process of composition quickly becomes complex as we attempt to manage the relationships between all of the things relevant to the app. In order to fight this complexity, we can engage in a process of <em>stratified design, </em>or <em>“</em>the notion that a complex system should be structured as a sequence of levels that are described using a sequence of languages” (<a href="https://web.mit.edu/6.001/6.037/sicp.pdf">SICP</a>). </p>
+
+<p id="5b03045f-8c8c-483d-998b-ba39b3e90c1c" class="">So how can we break our apps into “a sequence of levels” that we can describe with “sequences of languages”? Well, we can first return to our definition of apps as systems of information, presentation and interaction. We take data from the information level, display it on the presentation level, and update it via the interaction level—store, show, change. </p>
+
+<p id="ca5a66e1-9c84-471a-b1fb-3f63f692b027" class="">Within each of these levels, we’ll need “sequences of languages” to describe them. We’ll address these now.</p>
+
+<h3 id="dad1250a-f3c7-4dfa-8e42-8cda94e6491b" class="">Information</h3>
+
+
+<p id="6d78d231-8d38-4cc7-944a-29df64603ce1" class="">In MVC, models hold information. A model might describe a data object directly, or it might describe a store of data, a “repository” of data objects. In SIMPLER, “M” stands for—surprise, surprise—<strong>models</strong>. I’ll attempt to clarify further the <em>language</em> of these <strong>models</strong>, and understand how this level of the system operates. We’ll think of <strong>models</strong> as Objects. These Objects are represented on screen as Text & Graphics and have Behaviors, which change the properties defining these Objects.</p>
+
+<p>
+		We generally think of a <strong>model</strong> as an <em>entity</em>, an "object" living within our application. This entity's job is to store information, in a structured way. It does this job through relationships to other models. These models may be small self-contained, like a string or an number, or they may contain other models. For example, a point model might hold two numbers, describing the x and y components of a two-dimensional point. 
+	</p>
+
+		<figure style="width: 50%; padding-left: 25%">
+					<a href="../../images/SIMPLER-architecture-model.png">
+						<img  src="../../images/SIMPLER-architecture-model.png">
+					</a>
+				</figure>
+
+	<p>
+		<strong>Models</strong> serve not just to store information, but to give it structure. The type of a model describes what it is, and if a model contains other models, the names of these relationships describe what they are, like the "x" and "y" of a point. These descriptions allow our application to make sense of each different type of <strong>model</strong>, and know how to read it's stored information. The <strong>logic</strong> of our application, which we'll touch on later, describes how we can write to these <strong>models</strong>.
+	</p>
+
+
+<h3 id="8683a6fe-2843-4e87-8d6b-421e1ec0571e" class="">Presentation</h3>
+
+<p id="560eef68-0c22-4bf6-bd87-7698fc2066c4" class="">In MVC, views present information through Text & Graphics. We may craft this presentation ourselves, using low-level text and graphics engines to transform data into visual representations, or we may use higher-level views, which handle this presentation for us, allowing us to provide just with information that it knows how to display. </p>
+
+<p id="d809469c-f3cc-4b26-8310-5836a505bdb5" class="">In SIMPLER, we use two levels to describe the aspects of presentation, <strong>scene</strong> and <strong>interface</strong>. </p>
+
+<p id="502ad7ef-53f0-4aba-b168-98219e840c5f" class="">Scenes describe the top-level decomposition of our app, and can be thought of as “wrappers” around the remaining levels. They group information, presentation, and interaction into a bundle, allowing us to divide our apps into a “sequence of languages”, with the flexibility to have as many scenes as we choose. Some apps will choose a monolithic scene approach, grouping all objects into one Redux-style bundle. This minimizes the pain of data dependencies, as all data is on hand for the interfaces to make use of.</p>
+
+<p id="cd67c66a-190e-4ebe-b316-3571adeab8e9" class=""><strong>Interfaces</strong> can be more directly equated with our traditional notion of “views”, describing a section of the screen that shows Text & Graphics and manages Gestures. Interfaces serve as the meeting points between human and digital representations. As <a href="http://waste.informatik.hu-berlin.de/~grassmuck/Texts/tg.e.html">Volker Grassmuck</a> puts it, the interface is the “visible &#x27;tangible&#x27; surface of media, the nexus point or gateway between man and media, i.e. the world”. We can think of our app as an Interface made up of many <strong>interfaces</strong>. </p>
+
+	<figure style="width: 50%; padding-left: 25%">
+					<a href="../../images/SIMPLER-architecture-view.png">
+						<img  src="../../images/SIMPLER-architecture-view.png">
+					</a>
+				</figure>
+
+<p id="0d1cb976-89ef-4783-87c8-3882dd8a34f7" class="">Our scenes bring together sets of interfaces, like images, text editors or buttons, marrying the visual and gestural experience between multiple types of displays and controls. In this, they organize the “tangible media surfaces” within our apps. </p>
+
+<h3 id="444ee515-3384-4f77-bb37-03e85642c8a6" class="">Interaction</h3>
+
+<p id="291ce245-eb9b-4f4a-bd02-e1e6c26b47fe" class="">Interaction is how the wheel of our apps spin. We have a lot of different names for this process: <em>controller, view model, intent</em>. In general, our interactions are managed by a system of components. We want something that represents <em>something that should happen</em>. MVI calls these “intents”, but most refer to these objects as <strong>events</strong>. Next, we need something that <em>transports</em> these events to the place where the <em>something will actually happen. </em>We will refer to these transport channels as <strong>pipes. </strong>The actual changes, the "responses" <em>things that happen</em>, is the <strong>logic</strong> within our app. </p>
+
+<p id="e7700707-3875-454c-8d5f-e83549270201" class="">In order to make reusable pipe-logic-event abstractions, we can define <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>resources. </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> In our apps, the most critical rule is that we don’t interrupt the main interaction loop. <strong>Resources</strong>, sometimes referred to as “services”, help us manage these “background” processes that occur <em>over time</em>, or that will take a<em> long time. </em>They say that time is the most precious resource, and we’ll say that resources help manage this precious time.</p>
+
+
+	<figure style="width: 70%; padding-left: 15%">
+					<a href="../../images/SIMPLER-architecture-controller.png">
+						<img  src="../../images/SIMPLER-architecture-controller.png">
+					</a>
+				</figure>
+
+
+<p id="abcb0c89-8685-4797-a7e0-d15d3a0e1384" class="">Because these resources may interrupt the main loop, we’ll want to sequester them away from the main loop of interaction, giving them their own processing loops, and pipes to communicate events back and forth with the main loop. </p>
+
+<h3 id="d5428440-bdba-4716-a0ac-2e4939b0d92b" class="">SIMPLER Counter</h3>
+
+<p id="be1a010b-8330-4526-8ea6-83e88c430153" class="">Let’s jump into some code. We’ll build a simple counter that the user can increase and decrease. Let’s run through the things—the Text & Graphics, Objects, Behaviors, Events, Gestures and Modes— and look at how we would build it in SwiftUI with SIMPLER.</p>
+
+<figure></figure>
+
+<h4 id="86d8f58d-d699-4d88-aa57-701895d20819" class="">Text & Graphics</h4>
+
+<p id="4d9cecc0-58c5-431d-ad09-5f5b085606c5" class="">We want to show only one piece of data, the count. This will be an integer that we will display inside of a Text display. In addition, we’ll want two buttons, which we’ll represent through the text strings “Increase” and “Decrease”. To emphasize these are buttons, we’ll use a graphic background—a rounded rectangle.</p>
+<pre id="7246818c-3f28-428c-87d1-adf99aec98fe" class="code">
+<code>Text(&quot;\(count)&quot;)
+Button(&quot;Increase&quot;) { \* increase count *\ }
+Button(&quot;Decrease&quot;) { \* decrease count *\ }</code>
+</pre>
+
+
+<p id="3b2137a4-973a-4ff1-bb80-a1cf41882c14" class="">We’ll want to provide some order to these three components,  so we’ll wrap them in a VStack, which stacks them vertically, centered in the screen. </p>
+
+<pre id="d98bed25-4075-45df-a9eb-4a0bbc5d2db3" class="code">
+<code>VStack {
+  Button(&quot;Increase&quot;) { \* increase count *\ }
+  Text(&quot;\(count)&quot;)
+  Button(&quot;Decrease&quot;) { \* decrease count *\ }
+}</code></pre>
+
+<h4 id="d1f56c73-4ed4-4e58-a4b1-6f908b1c9a0f" class="">Objects</h4>
+
+<p id="92997a89-2990-4d59-9e3e-c16f30bda524" class="">Because our only data is the count, we only need one object–an integer. In SwiftUI, the simplest way to make this object reactive is to wrap it with a <code>@State</code> property wrapper. </p>
+
+<pre id="435813e2-92fd-4c5e-8d68-5bb67d81ba91" class="code"><code>@State var count: Int = 0</code></pre>
+
+<h4 id="9a0bec73-8b76-43f1-b270-012b165a48e4" class="">Behaviors</h4>
+<p id="ec27eeb8-a175-4e11-9d5e-3f223b16d6ba" class="">We want our object to be able to increase and decrease in value, so we’ll give it two behaviors: <code>increase</code> and <code>decrease</code>. We can define this behavior, or logic, in a number of locations (in the view, in a store, on the object). We’ll choose here to do so on the object.</p>
+
+<pre id="7ab1c1be-88e7-42ee-abcc-9da138bff8f9" class="code">
+<code>extension Int {
+  func increase() -&gt; Int { self + 1 }
+  func decrease() -&gt; Int { self - 1 }
+}</code></pre>
+
+<h4 id="4ed76b10-5b6b-4b61-b6b4-520db751559a" class="">Events</h4>
+
+<p id="3176fdf7-8bab-4ab4-9c68-fb6ee2c3112e" class="">We could trigger this behavior directly on the button tap. Some may even argue that’s the <em>simpler </em>way of doing things. I want to make a point here by not doing this. In SwiftUI, the Views end up being the heart of the application. In order to make these as lightweight as possible, we’ll want to keep as much logic outside of them as possible, behind function calls or event handlers. This makes them easier to work with and more reusable. </p>
+
+<p id="7a4fbaed-46ec-477c-a1f0-a1a68629af65" class="">In this case, we’ll use a lightweight event handler. But first, we need to define our events. We have two: <code>increaseCount</code> and <code>decreaseCount</code>.</p>
+
+<pre id="bcf0bda8-2148-4337-a380-a35b2f699155" class="code">
+<code>enum Event {
+  case increaseCount
+  case decreaseCount
+}</code></pre>
+
+<p id="7aff441b-1d9f-45dd-bcd3-3579afb493e1" class="">In order to trigger these behaviors, we need a way of sending the events from the views to be handled elsewhere. In this case, we’ll simply define an event handler as a function in our View, and allow our buttons to call to this function.  </p>
+
+<pre id="ac3f4515-ac3c-463a-8164-d35e436a14e6" class="code">
+<code>struct CounterView: View {
+  @State var count: Int = 0
+  
+  var body: some View {
+    VStack {
+	  Button(&quot;Increase&quot;) { send(.increaseCount) }
+	  Text(&quot;\(count)&quot;)
+	  Button(&quot;Decrease&quot;) { send(.decreaseCount) }
+	}
+  }
+
+  func send(_ event: Event) {
+    switch event {
+	  case .increaseCount: 
+		count = count.increase()
+		break
+   	  case .decreaseCount: 
+		count = count.decrease()
+		break
+	}
+}</code></pre>
+
+
+<h4 id="e6fa5f4f-b7ba-4f7d-9a53-ffa380626be2" class="">Gestures</h4>
+
+<p id="f934ddf1-d08e-4770-a681-a43824e14ab8" class="">In this case, the Buttons we defined handle interactions through tap gestures. When they are tapped, they fire an action. Alternatively, we could have built our own buttons, but we’d miss out on some “out-of-the-box” platform features, like animations, platform-specific views, and accessibility. </p>
+
+<p id="dca2004b-eecf-40d9-aa0d-11a533ed87db" class="">But, if we wanted to, we could define our own button from parts, like the following:</p>
+
+<pre id="a1b4e559-4c5b-43e7-9a40-999382c32d45" class="code">
+<code>Text(&quot;Decrease&quot;)
+  .padding()
+  .contentShape(Rectangle())
+  .onTapGesture {
+	send(.decreaseCount)
+  }</code></pre>
+
+	<h4 id="108115fc-882e-4f4a-b100-29151a00b57c" class="">Modes</h4>
+
+	<p id="5642cb21-f66e-4ffc-a4cd-60ed9ab624a0" class="">Don’t tell <a href="http://worrydream.com/refs/Tesler%20-%20A%20Personal%20History%20of%20Modeless%20Text%20Editing%20and%20Cut-Copy-Paste.pdf">Tesler</a>, but we’re going modeless. Since this counter is so simple, with only two instances of one type of interaction, there’s no need for modes here. </p>
+
+	<p id="b569a006-2500-4b6c-955e-123b9dc66f39" class="">If there was, we would make use of it in two locations. First, we might change the Views presented. If we take an example of an app that can be in either a <em>editing</em> or <em>viewing</em> mode, we might display a "Done" button to exit the <em>editing</em> mode.</p>
+
+	<pre id="4af4eaa3-469c-45e1-ad0d-863f1f93905e" class="code">
+<code>enum Mode {
+  case editing
+  case viewing
+}
+
+@State var mode: Mode = .editing
+
+var body: some View {
+  switch mode {
+  case .editing: Button("Done") {...}
+  case .viewing: ...
+  }
+}</code></pre>
+
+<p id="bb2cffc9-e359-4081-ba43-8a6fa22b88ff" class="">Additionally, we might want to handle events differently, depending on the mode. This is why we typically forward actions to an event handle, as it can serve as the place for this uglier code.</p>
+
+<pre id="f6e99d25-5d41-4505-b7e8-4e9d10f1b179" class="code">
+<code>func send(_ event: Event) {
+  switch event {
+  case .buttonTapped: 
+    switch mode {
+    case .editing: ...
+    case .viewing: ...
+    }
+  }
+}</code></pre>
+
+	<p id="6388feb7-f561-4d7b-a571-4a92e6ba5844" class="">The former assures all events are handled, with each specifying if it is handled differently in different modes. The latter allows each mode to define a subset, though some events will need to be re-handled for behavior that is consistent across modes. </p>
+
+	<h3 id="d328355f-3efb-4b0e-9b5d-4729012db237" class="">Mapping to SIMPLER</h3>
+
+	<p id="d008fbfc-00c8-467c-bbde-58157980c250" class="">Now that we have built up a simple app (a combination of Text & Graphics, Objects, Behaviors, Events, and Gestures), we can go back and connect all of these pieces to their SIMPLER counterparts. </p>
+
+	<pre id="eca05c38-7003-4d05-b4b2-17f1ce3873ac" class="code">
+<code>// S: Scene
+struct CounterView: View {
+
+// I: Interface
+  var body: some View {
+    VStack {
+	  Button(&quot;Increase&quot;) { send(.increaseCount) }
+	  Text(&quot;\(count)&quot;)
+	  Button(&quot;Decrease&quot;) { send(.decreaseCount) }
+	}
+  }
+
+// M: Model
+  @State var count: Int = 0
+
+// P: Pipe
+  func send(_ event: Event) {
+    switch event {
+    case .increaseCount: 
+      count = count.increase()
+      break
+    case .decreaseCount: 
+      count = count.decrease()
+      break
+    }
+  }
+}
+
+// L: Logic
+extension Int {
+  func increase() -&gt; Int { self + 1 }
+  func decrease() -&gt; Int { self - 1 }
+}
+
+// E: Event
+enum Event {		
+  case increaseCount
+  case decreaseCount	
+}
+
+
+// R: Resources
+// ...none required here
+</code></pre>
+
+
+<h3 id="8fd4607f-8ac7-4b5d-99b2-2f06d6a04bd6" class="">Architecture Metaphor</h3>
+
+<p id="c1b1cee9-8d12-4da7-8b06-1a5f9a54011b" class="">In order to really lean into the architecture metaphor, let’s try to draw comparisons between each aspect of SIMPLER and familiar concepts from the architecture of a house. </p>
+
+<h4 id="34b7d8cf-b2bb-4931-85c0-0d63acd61aaf" class="">Scene → Rooms</h4>
+
+<p id="cfc6b2f5-d9cc-4cb9-8d4b-354b10c5860c" class="">We can think of scenes like we would rooms in a house. The decomposition of a house into rooms breaks up the space into a set of subspaces, used for different purposes and placed in ways to control the flow through the house. Inside of these spaces, we’ll want to do different things and have them look certain ways—making use of different furniture, decorations, appliances, media and materials. </p>
+
+<p id="c6ccbc6b-da1c-45d2-881b-5e2da7af7d15" class="">In the same way, scenes are the top-level decomposition of our apps, dividing them into a number of different spaces. Their arrangement will control how we flow through the app, and the presence of interfaces and models will control how they look, and what we can do in them. We can divide our applications into a number of different contexts, to facilitate the range of desired behaviors. </p><p id="11ae86b3-bd53-47ae-ac1b-f9db852ef85e" class="">We’ll represent scenes quite simply in our apps. In most cases, we can just use a naming scheme (CounterView, CounterModel, CounterEvent) that delineates the object as part of a scene. Alternatively, we can define and extend Scene enums, using a dot-delimited naming scheme.</p>
+
+<pre id="6b48ee3a-b719-4b41-b2b5-2c42587b83a3" class="code"><code>// 1. naming scheme
+struct CounterScene: View {}
+CounterScene()
+
+
+// 2. enum scheme
+enum CounterScene {}
+extension CounterScene {
+  struct Display: View {...}
+}
+CounterScene.Display() </code></pre>
+
+<h4 id="3ac12586-d56b-4e24-889e-751b4bfaf820" class="">Interface → Furniture, Decorations</h4>
+
+<p id="ca923de0-1740-4955-9f36-64874383be8f" class="">Inside our rooms, we act in certain ways, according to the furniture and materials present. Furniture helps to shape our interactions. Their arrangement will shape how we flow around them, how we move and conduct ourselves (sit, stand, recline).  Around them, we place decorations to make the room’s appearance pleasing or meaningful. </p>
+
+<p id="c2d7dbe1-7201-4001-b551-27d7d62567e4" class="">In our apps, we’ll need means of shaping the interactions and appearance as well. We’ll refer to these as controls and displays, means of doing things and seeing things. Generally speaking, these are rectangular units within our scenes that display text and graphics, and handle gestures by sending events. </p>
+
+<p id="b9b62667-3be6-4591-ade5-bc039a56fc34" class="">In game development, the structure of interfaces is called a “scene tree”, which is a hierarchical tree of objects. The same is true in app development; we define trees of interfaces. We can think of the leaves of these trees as content and controls. Content is purely text and graphics, while controls are text and graphics made functional. We can think of the branches of this tree as containers and chrome. Containers are organizers for a set of contained interfaces, arranged in structured ways like lists or grids, or less structured ways like canvases. Chrome interfaces are platform containers, like dialogs, sheets, toolbars, and popovers, which offer extra places for controls and content. </p>
+
+<figure></figure>
+
+<p id="e2da3f71-2d13-4398-906e-8a0345057077" class="">In our apps, we’ll use View structs to define these interfaces like in our counter app. We can decorate these views with modifiers, which will change the views style, or add functionality like gestures or animation. </p>
+
+	<h4 id="71285ec9-d5d6-43cc-b655-91cc3959c620" class="">Model → Media, Materials</h4>
+
+	<p id="6d529ee2-7a9b-4b15-8e97-9f6e9b1e60de" class="">In addition to decor, we often have a number of pieces of media, and varied materials—clothing, food, drinks, cleaning supplies, etc—inside of our rooms. This <em><em><em><em><em><em>stuff </em></em></em></em></em></em>represents things we collect and consume, things we use to clothe ourselves and create. </p>
+
+	<p id="8529b01d-ea8f-4f06-9030-fe71a212b852" class="">While interfaces handling <em>doing</em> and <em>seeing</em> things, models handle <em>storing</em> things (collections, consumptions, clothing, creations) as objects, remembering their values and allow sets of behaviors that will change their values.</p>
+
+	<p id="6b28e339-b54e-4608-9101-94dc07810814" class="">Models help us to organize the information in our applications, structuring our data in ways that make it useful. We make use of numerous models throughout our apps, holding onto information for various amounts of time, in various locations. </p>
+
+	<p id="f6542823-d5a5-4892-877d-a9e2e8a1f8a2" class="">We can think about where our models will live. The closer to the view, the more temporary the model. These are often pieces of information like which popovers are presented, or what the search text is. These small pieces of information, often related to how other information is presented, are stored in-memory, and most likely aren’t held onto after an app is closed.   </p>
+
+	<p id="9a1abf5c-8fb8-4a98-bcf2-a6696d3a9fd0" class="">On the other end, we have data that we want to persist for a long time. This is data we want to be available anytime we open the app. To accomplish this, we make use of the file system, storing information either in files or databases. Each app receives its own “siloed” section of the file system, where we can store information of our choosing. If we use files, we will need ways of encoding and decoding these models, and these models will need to be decoded to be queried. If we use databases, we will need to conform our types to match what the database can handle, but we gain rich query access to our models. </p>
+
+
+	<p id="f683fa27-ecdd-4194-9167-79e2fc8738d3" class="">In order to make this data available to our interfaces, we’ll often use “property wrappers” that allow the models to take part in the reactivity of SwiftUI. Below, we outline the three major layers of models: local state, state stores, and database models. For stores and database models, we define an object observer (like <code>@ObservedObject</code>). Here, <a href="https://github.com/realm/realm-swift">RealmSwift</a> is used to define the database model. </p>
+<pre id="9fd1340f-1854-44c8-9f01-d796e7523bce" class="code"><code>// 1. Define inside View
+struct StateView: View {
+  @State var a: Int
+  ...
+}
+
+// 2. Define outside View, in App Memory
+class Store: ObservableObject {
+  @Published var a: Int
+}
+
+struct StoreView: View {
+  @ObservedObject var store: Store
+  ...
+}
+
+// 3. Define outside View, inside Database
+class Item: Object {
+  @Persisted var a: Int
+}
+
+struct DatabaseView: {
+  @ObservedRealmObject var item: Item
+  ...
+}</code></pre>
+
+<h4 id="66df8323-673b-4f5a-b857-d663bb3794c5" class="">Pipe → Wiring, Piping</h4>
+
+<p id="67b2fe4d-d2cb-45fc-8ae1-aba565c1c85f" class="">We can think of pipes as the wiring and plumbing within our architectures, helping us to send messages and data within and between the rooms of our app. Imagine we flip a light switch. We can think of messages being sent between the switch (<em>control</em>) and the light (<em>display</em>), and the pipe (or wire) that connects the two. </p>
+
+<p id="5d4c6745-ba31-4bab-9d27-7a33993231eb" class=""><a href="https://en.wikipedia.org/wiki/Message_passing">Message passing </a>is a common technique in computer science for handling inter-object communication. We can imagine the radio. Some objects set up their own “channels”, and broadcast messages onto this channel. Other objects can choose which channels they will listen to, allowing them to receive and possibly react to broadcasted messages. These pipes easily facilitate connection between non-adjacent spaces within our apps, reducing the burden of data dependencies.</p>
+
+	<p id="58f1a6a7-f982-4921-b25b-e3ec285d9050" class="">Swift offers us a number of tools for passing messages, and forming <em><em><em><em><em><em><em>message channels</em></em></em></em></em></em></em>: callbacks, notifications, delegates, KVO (key-value obeserving), and more recently, Combine publishers. 
+	</p>
+	<p>
+		Combine is especially compelling given its powerful, flexible nature. It allows us to setup arbitrary sending and receiving locations within our app, allowing us to construct "lines of communication" between different objects and interests.
+	</p>
+
+<pre id="70e2f611-a0aa-4592-a224-ccfc45ba6bc0" class="code"><code>// define
+let channel = PassthroughSubject&lt;String, Error&gt;()
+
+// send 
+channel.send(&quot;Hello World&quot;)
+
+// receive anywhere
+channel.sink { message in /*handle message*/ }
+
+// receive inside View
+.onReceive(channel) { message in /*handle message*/ }
+</code></pre>
+
+
+
+<h4 id="60bd56d6-b397-4ca8-a28b-01d41c7f57fd" class="">Logic → Utilities</h4>
+
+<p id="5e670b02-3d7d-48bf-a4bd-e9164ff550f6" class="">We can think of logic as the <em>stuff that powers the house</em>, the water, electricity, internet and other utilities that power the house, make the sinks and toilets work, keeps the lights on, etc. These utilities lets us do <em>stuff</em>, like cook, wash, watch TV, change the channels, etc. </p>
+
+<p id="5035fa97-1e89-4522-b9fa-891eb71fa494" class="">In our apps, logic is code that updates our models. Because SwiftUI is a reactive framework, changes in our models cause changes in our interfaces, which is how we see that things are working. A common pattern in computer science is the <em><em><em>separation of concerns, </em></em></em>in which we split up our code based on its purpose. We can think of how to break our apps into different sections of logic, and how we can define “protocols” for each of these. </p>
+
+<p id="e5c35fe2-daf5-4796-bebf-7c4c7c6419fd" class="">We make use of logic in our apps by the ways we <em>handle</em> events. Stores keep track of large chunks of state, and know how to handle events, by mapping them to logic and generating state updates. We can think of logic as the <em>message responses</em>, the reactions to getting a message (usually involving the updating of logic).</p>
+
+<p id="70d60510-f882-400a-93a4-c9eab2771c91" class="">Often we will apply logic in our event handlers or as functions/extensions on our model objects. If we wish to reuse logic in Swift, we can define protocols and extensions. </p>
+
+<p id="316f3789-ca0d-4ba2-88d3-f5896335a736" class="">If you are familiar with C programming, we can loosely compare protocols to <code>.h</code> files, which declare the “abstracted” forms, or the names of the variables and functions, without implementing them. Extensions, on the other hand, are the <code>.c</code> files, which make the abstractions concrete. Objects wishing to implement certain logic can <em><em><em><em><em>adopt</em></em></em></em></em> protocols and make use of defined extensions, or can define their own custom implementations. </p>
+
+<pre id="2f6cd388-17de-42bf-862d-17220479c07e" class="code"><code>protocol Example {
+// abstract form of the logic
+  func example() -&gt; String
+}
+
+extension Example {
+// a concrete form of the logic
+  func example() -&gt; String {
+    &quot;Hello World :)&quot;
+  }
+}
+
+// adopting object
+class An: Example {}
+
+An().example() // &quot;Hello World :)&quot;
+</code></pre>
+
+
+<h4 id="51fd2789-75cc-409e-bd0a-1e1737e542c8" class="">Event → Panels, Switches, Buttons, Handles</h4>
+
+<p id="786753bb-e7fb-49b5-9794-811e02564c2c" class="">In order to control when our utilities are used, we use a number of control panels, switches, buttons, handles or other controller to turn on/off or control the level of a certain utility. When we turn the sink handle, it’s as if we send a <code>waterOn</code> event and as we adjust the handle, a <code>changeWaterLevel(Double)</code> event.</p>
+
+<p id="041f0a3c-a8be-4024-ac42-21a1b5961036" class="">The event, or <a href="https://en.wikipedia.org/wiki/Command_pattern">command</a>, is a well-worn pattern in computer science, representing the concept of a <em><em><em><em><em><em><em>message</em></em></em></em></em></em></em>. The <a href="https://en.wikipedia.org/wiki/Design_Patterns">Gang of Four</a> call them an “object-oriented replacement for callbacks”. <a href="https://gameprogrammingpatterns.com/command.html">Bob Nystrom</a> calls them “<em>reified method call[s]”. </em>Events are “objectified callbacks”, made such by having a) a type, and b) a set of properties. </p>
+
+<p id="fb83be8a-59f8-4753-8d09-85b2c8146472" class="">The easiest way to do this in Swift is through enums. Each case represents a different event type, and the associated values, if any, represents the set of properties. </p>
+
+<pre id="2c231949-4b32-48f2-9686-d281d053fdd2" class="code"><code>enum Event {
+  case message(sender: UUID, payload: Data)
+}</code></pre>
+
+<p id="b177cbd9-207e-43f3-b60e-c28f287e3875" class="">Enums give us a convenient, lightweight way to describe the <em><em><em><em><em>happenings</em></em></em></em></em> in our app. We are free to declare as many event types, with whatever associated information, as we feel adequately represents the total space of events in our apps.  Event handlers consume events and produce actions, by mapping events to logic. We saw an event handler above—a switch statement handling different event cases by triggering logic and updating state. </p>
+
+<h4 id="3ad52483-b7e5-4ed4-be81-981e266003a4" class="">Resource → Appliances</h4>
+
+<p id="2d8bf0b4-fadd-490e-9a88-44a5cb30c36c" class="">Many of the conveniences of modern life are a result of the rise of household appliances, which ease daily activities like cooking and cleaning. We can imagine setting the temperature dial on an oven and placing a tray of cookies inside, or putting clothes in a washer and pressing start.  These machines can be thought of as abstractions of logic, events and pipes. They are often connected to a power source, and use this power to to do some manual work automatically. The character of the work can be mediated through sending events to the appliance, often through buttons and dials. </p>
+
+<p id="07fbe418-0542-499d-a4a1-2e648690c7e7" class="">Commonly, our apps require extra “services”. In general, these will be asynchronous activities, or background activities used to return data to the main application. These could range from smaller monitoring activities, like for device notifications (keyboard, orientation), to API calls and web services, to large computations or media processing. </p>
+
+<p id="ac66c900-acac-4c62-a15c-0fb1c501644f" class="">In our architectures, these “appliances” bundle together logic (<em>do things</em>) with events and pipes (<em>communicate back and forth</em>). We can think of each of these resources as adding another update loop to our application, in the form of a <em>messenger abstraction</em>. We can either send messages to these resources, or listen for and receive messages back. In this structure, we can connect our main update loop to each resource loop by way of Pipes and Events, which allow the resource to act in their own timing. </p>
+
+<h3 id="1470a85a-645f-407f-85c6-7b3e1a9719f7" class="">Wrap Up</h3>
+
+<p id="3346739a-1dc5-481f-a11e-f907ca6b45e1" class="">While it may feel especially verbose, especially in relation the the MVC-family of architectures, I believe SIMPLER gives a clearer set of “blueprinting” objects to architect applications according to their aspects of information, presentation and interaction. 
+</p>
+<ul>
+<li>
+	In maintaining the same “model” of understanding of data, SIMPLER is consistent with MVC-like architectures in terms of how it understands information. 
+</li>
+<li>By making clearer how the application separates into separate locations (scenes), and the nature of the views that occupy these locations (interfaces), we gain a better structuring of the presenting layer. 
+</li>
+<li>
+And by breaking the interaction layer into four components—messages (events), message channels (pipes), message responses (logic) and messenger abstractions (resources)—we gain a set of objects that clarifies the interaction, or <em>update</em> process.</li>
+</ul>
+
+
+
+			</main>
+
+			<footer>
+				2022 John Knowles
+			</footer>
+
+	</body>
+
+</html>

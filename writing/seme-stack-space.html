@@ -1,0 +1,198 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Seme | Stack | Space </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+			<header>
+				<nav>
+						<div style="align-items: baseline; height: 100%;">
+						<a href="../" >
+							<h1  class="overlair-name"> 
+								overlair
+							</h1>
+						</a>
+							<div>
+							<a href="../about/"> 
+								about
+							</a>
+							
+							<a class = "current-nav-tab"  href="../writing/"> 
+								writing
+							</a>
+							<a href="../projects/"> 
+								projects
+							</a>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<main>
+				<h2> Seme | Stack | Space</h2>
+				<p id="7f9f05a1-5c3c-48b0-9eec-0bb23fee0e72" class="">We can think of applications as being the product of three main levels of abstraction-seme, stack, space. These levels organize the content, containers, and contexts of the application. 
+
+				<p id="c44ca6e0-5bb9-4c2c-8a54-ff2a645f8bc2" class="">The decision to break down into three levels derives from two sources: Engelbart’s famous phrase "thought vectors in concept space”, and Hal Abelson/Jay Sussman's description of language as having “primitive expressions, a means of combination, and a means of abstraction”. 
+				</p>
+					<p>From these, we can map: 
+						<ul>
+							<li>
+								primitive → thoughts → <strong>semes</strong>
+							</li>
+							<li>
+								 means of combination → vectors → <strong>stacks</strong>
+							</li>
+							<li>
+								means of abstraction → concept space → <strong>spaces</strong>
+							</li>
+						</ul>
+				</p>
+		
+
+				<h3 id="a79ea5d1-ee26-45d3-b79e-fe77c1b29ed2" class=""><mark class="highlight-teal">Pattern 1: Documents as Semes</mark></h3>
+
+				<p id="498c2bb3-0360-414e-a9e3-9c12eec52be3" class="">A common pattern in many new media softwares is to use a notion of <em>blocks </em>as the primitive for constructing media documents. By linking these blocks together, one can create larger and larger media-scapes, in which associations and hierarchies exist as fundamental parts of the structure. </p>
+
+				<p id="f9c72953-c275-4094-b860-40f989367cb7" class="">Instead of using <em>blocks t</em>o describe this material<em>,</em> we’ll borrow a term from semantics—<em>seme—</em> the <a href="https://en.wikipedia.org/wiki/Seme_(semantics)">smallest unit of meaning</a>. We can think of <em>semes</em> as the unit of <em>discretization</em>, or <em>decomposition, </em>in our documents. In order to express higher-level meanings, we construct structures and networks from these low-level blocks.</p>
+
+				<blockquote id="13bcfee7-b4aa-477b-92ba-bdd26441dcfe" class="">
+					<mark>Modularity is the human mind&#x27;s lever against complexity. Breaking down a complex thing into understandable chunks is essential for understanding, perhaps the essence of understanding.</mark>
+					<br>
+					<cite>
+			<strong>Bret Victor</strong></cite></blockquote>
+
+<p id="eaeee539-bbd8-46b6-87ba-0823de5d4b77" class="">This idea is already familiar to us. We break our songs into choruses and verses, books into chapters, essays into paragraphs, movies and play into scenes, reports into sections. When we create media, we do so as a composition of parts. Blocks feel more ergonomic because they <em>are</em> more ergonomic. </p>
+
+<p id="880c53bf-5b9a-4dde-8b83-65bb3752e063" class="">In having a uniform type serving as the foundation for the database, we can create media with a consistent material. If we consider the idea of <em>blocks </em>in two types of softwares—coding “journals” like Jupyter Notebooks<em>, </em>and notation systems like Roam and Notion—we see how the <em>block </em>changes our interaction with the documents. </p>
+
+<p id="46a14c2a-00a6-4946-b41f-74216d775832" class="">In Jupyter, we no longer have to run programs as a full unit, but instead we can decompose it into comprehendible parts, and run these in a serial fashion. We can intersperse our code with other media—text and graphics—in order to more appropriately represent the nature of the inputs and outputs of a program, as well as the program itself. Creating, deleting, editing and other interactions with these blocks are uniform, so we can apply the same patterns to different types of blocks. </p>
+
+<p id="ba8a80c7-2224-42f5-9837-84527fd90e82" class="">In Roam and Notion, we no longer write documents as monolithic structures, but instead as the composition of small units of text or other media. This pattern of using nesting, links and transclusions allows us to fold our documents onto themselves, creating interconnected—rather than independent—experiences. </p>
+
+<p id="df6d857d-99cb-481b-8c90-f2d05f3c100d" class="">Blocks give a consistent interface of interaction. We understand a block, what we can do with it, how we can combine it with other blocks. To make an oft-made reference, these blocks serve in the same way as Legos, allowing us to build up and tear down creations of media units.</p>
+
+<h3 id="09ffc888-48a4-44cf-8ade-bf91ebefd2e3" class=""><mark class="highlight-teal">Pattern 2: Arrangements as Stacks</mark></h3>
+
+<p id="2faa1630-9a29-4350-b65d-e46282f18d97" class="">In addition to a system of blocks, we also need useful ways of visually binding these together into groups. To express meta-block properties like nestings, transclusions and links, it is not enough to have a backend that can represent these features—we need meaningful ways of presenting these groups of blocks on screen that emphasize and represents the structure of their connections. </p>
+
+<blockquote id="781a6d21-2901-4a75-8a8e-f01db601fd52" class="">
+	<mark>What we need is not just visible connection, but a rational and extensible structure behind it-- a way of grouping parallel documents and managing their visible interconnections.</mark>
+	<br>
+	<cite class="highlight-teal"><strong>Ted Nelson</strong></cite>
+</blockquote>
+
+<p id="d1fa638c-7c7a-442e-84cf-958a0624124e" class="">In dealing with digital object<strong>s</strong>—<em>plural—</em>we need ways of aligning and ordering them; mechanisms for selecting, sorting, filtering and searching them; ways of handling operations that can be performed on them; and controls for interacting directly with them by dragging and dropping. </p>
+
+<p id="1bd38610-9ad6-40d3-9806-59e8c212a7a5" class="">The benefit of <em>stacks</em> is their ability to impose a dimensionality (x, y, z) on a set of objects, such that they live in alignment within a single container. We <em>bind</em> objects to some backing structure, such that we can have a consistent formatted display, and interact with the objects as a group for selecting and manipulating.</p>
+
+<p id="6050c276-ef4c-450a-a736-419a05f9063d" class="">Briefly, we can consider the three dominate forms of <em>stacks</em> within interfaces: the <strong>list</strong>, the <strong>grid</strong> and the <strong>canvas</strong>. Of these, we can consider the <strong>list</strong> and the <strong>grid</strong> to be <em>fixed, </em>while the <strong>canvas</strong> can be said to be <em>free, </em>in terms of the layout of the contained elements.  </p>
+
+<p id="131a8d7c-0636-4eb3-bdc7-4e97e4de4d3a" class="">We see the <strong>list</strong> in many forms: in timelines of content, file systems, and more. For much of the text-based media content on our devices, we prefer a one-dimensional stacking of rectangular blocks, like the lines on a page. </p>
+
+<p id="8dfa1718-6b39-4f38-8550-385c6b6d6a25" class="">We see the <strong>grid </strong>in fewer forms, mainly to display media items like photos or videos, or to present a set of icon-based controls/content (like the iPhone home screen). We use grids to pack more items per unit of screen space, while we use lists to present fuller shapes for text-based media. </p>
+
+<p id="50d64565-67d1-4d2c-bdd1-f7523d338c77" class="">An alternative to <strong>lists</strong> and <strong>grids</strong> is <strong>canvases</strong>, or spaces in which objects exist in a <em>free, </em>rather than <em>fixed</em> state. While <strong>lists</strong> and <strong>grids</strong> allow us to hand over the task of lining up objects, <strong>canvases</strong><em> </em>afford a higher-level of user control over the size and location of our objects. </p>
+
+<p id="79f8bb09-6f13-4c2b-8b92-5cf194334e9c" class="">For a heterogenous set of objects (in terms of their size and shape), this type of layout is preferred. Fixed interfaces perform best over homogenous sets of objects, though there are ways to handle a diverse set of object forms. </p>
+
+<h3 id="041a1b17-56d9-4b14-a4b2-b0d8b57e3225" class=""><mark class="highlight-teal">Pattern 3: Perspective Maps as Spaces</mark></h3>
+
+
+<p id="e029577f-6a2e-450a-9cdb-1ecb20d8f40c" class="">There has been a recent rise in discussions on <em>spatial software, </em>which has helped to awaken a sleeping dragon, as many have been recently re-inspired to design for the potential of digital <div class="indented">
+
+	<ul id="e1321983-ed27-4a23-bbaa-a15af87c7276" class="bulleted-list">
+		<li style="list-style-type:disc">John Palmer, <a href="https://darkblueheaven.com/spatialsoftware/">Spatial Software</a></li>
+
+			<li style="list-style-type:disc">Christop Labacher, <a href="https://christophlabacher.com/notes/screen-as-room">Screen as Room</a></li>
+		</ul></div></p>
+
+<blockquote id="bc9a1e91-79df-4e79-b0fd-f2ca970ce3af" class="">
+	<mark>
+			What is not lost in the transition from the art of memory to the art of interface design is most of all the dimension of mental space. The stage where the play is enacted is idea space, regardless whether the mental image is evoked by printed, pictorial or sound signs, or a Wagnerian multimedia Gesamtkunstwerk.
+	</mark>
+	<br>
+	<cite><strong>Volker Grassmuck</strong></cite></blockquote>
+
+<p id="ac441254-4d1d-4466-a65f-8e500c9dff17" class="">What I think is missing from these discussions is the making good of the “location” metaphor. If we have spaces, we have places. If we have places, we have maps. The act of using maps, either internal or external, to navigate spaces is central to the nature of interacting with them.  We must consider the ways that we build abstractions over spaces, in terms of places, paths, landmarks, areas, and the way we might describe these objects with names, aliases, properties and classes. We abstract locations and sets of locations, building understandings through the locality and arrangement of these abstracted pieces, stitching them together into understandings of larger and larger landscapes. We might filter our views based on certain properties or classes, and construct the landscape in a reduced dimensionality. </p>
+
+<p id="4ea6be1c-5b1e-41f7-8cad-8f54d1634cb2" class="">If we are to create <em>worlds</em>, then so too must we create maps. It is not simply enough to give a user a space to exist in, you must also provide tools to document, explore, label, classify, spatialize—<em>map—</em> the current digital <em>place</em> they are in. It is also not simply enough to create <em>a </em>map, but as recursive trees. There is an adage in computer science, that <em>all problems can be solved with another level of indirection</em>. In a different way, <em>all problems can be solved by nesting maps in maps. </em></p>
+
+<blockquote id="fe4006d6-9b48-4ef2-b247-cfed827bf594" class=""><mark >An ideal map would contain the map of the map, 
+the map of the map of the map, 
+endlessly.
+</mark>
+<br>
+<cite><strong>Alfred Korzybski</strong></cite></blockquote>
+
+<p id="66ca4002-ad4e-420b-b583-0687b2531990" class="">While there have been numerous offerings giving new forms of spaces on computers, most seem to miss on the fundamental privilege that computers afford—the ability to represent information in arbitrary shape and scale. Most new designs for information spaces are still fixed on a physics that does not maximize the abstracting and recursing power of computers. </p>
+
+<p id="1b70c620-4f43-47cf-bc27-33141eed801e" class="">I’d like to redirect attention back a few decades, to some more “primitive” designs, so to speak. Two such designs are Boxer and Pad++, each centering on the displaying of objects with multiple levels of abstraction. </p>
+
+<h4 id="0e22fd57-492d-47ad-b4b5-2067a22cd12d" class=""><mark class="highlight-teal">Boxer</mark></h4>
+
+
+	<p id="ce5d31ba-ea98-453c-a081-ac0127b87ebc" class="">Boxer, researched by a team from MIT, Hal Abelson and Andrea diSessa, focused on representing “boxes” in hierarchical and recursive ways, similar to the way that LISPs represented information through nesting lists. Key to the design was the ability to nest boxes within boxes, such that each box represented a branch that could hold both leaves (media) and other branches (boxes). In their words...</p>
+
+	<blockquote id="6d449dcf-1017-4240-b49a-5d9952488b6a" class="">
+		<mark>All computational objects are represented in terms of boxes, which are regions on the screen that contain text, graphics, or other boxes. Boxes within boxes represent hierarchical structures.
+		</mark>
+		<br>
+		<cite><strong>Hal Abelson</strong> and <strong>Andrea diSessa</strong></cite></blockquote>
+
+
+<figure></figure>
+
+<p id="4a761b51-84e9-4198-ac59-071e020e24dd" class="">By now, people are well-aware of this notion of displaying information (computational objects) in terms of recursive containers through products like Notion and Roam. But I’d venture to guess that most understand these as vertically linear arrangements, a stack of “blocks”. Unique about Abelson and diSessa’s design was the use of both horizontal and vertical nesting, and the emphasis on interactivity. These were not meant to be solely media documents, rather they were designed to be dynamic, interactive, computational experiences. </p>
+
+<h4 id="dd06ed35-dddf-4f87-bf27-e465c9ed3a7a" class=""><mark class="highlight-teal">Pad++</mark></h4>
+
+
+
+	<p id="44227ae1-518d-46a3-bbba-8ed63049fff5" class="">Pad++ was researched by the team of Ben Bederson and James Hollan, and continued the work of Ken Perlin and David Fox (Pad). Bederson and Hollan describe a “much richer world” of “dynamic persistent informational entities”. Central to their design is a <em>semantic zoom</em>, which reshapes objects based on how “close” they are to the user in “3D” space. We are familiar with this dynamic in our mapping technologies, which show more, specific and more complete, labels and features as we zoom in, and higher-level, more regional labels and features as we zoom out. </p>
+
+	<figure></figure>
+
+<blockquote id="cf835648-05d3-4688-b692-42c7f5fb9ffb" class="">
+	<mark>Pad++ is a natural substrate for representing abstraction of objects using what we term semantic zooming…The physics need to be designed to exploit semantic relationships explicit and implicit in information intensive tasks and in our interaction with these new kinds of computationally-based work materials.</mark>
+	<br>
+	<cite><strong>Ben Bederson</strong> and <strong>James Hollan</strong></cite></blockquote>
+
+<h3 id="871845dc-97cc-4b0b-ae84-96a99bdcaef4" class=""><mark class="highlight-teal">Distillation: Maps as Arrangements of Media</mark></h3>
+
+<p id="57d6da7e-276e-458d-96db-2e51bfdfb45b" class="">Finally, we’ll end with a note on what these spaces should be for: to arrange our media such that it is easy to access and interact with. For the same reasons we use shelves to keep books, music or movies, we want similar interfaces in our digital worlds. </p>
+
+<p id="a52b2685-0aa2-4e89-bd36-1e85bd78b927" class="">In one sense, it is enough at an individual-level to construct personal libraries of content, suitable for storing away one’s own records and notes. But in order to truly develop a meaningful hypermedia language, a Gutenbergian task, we must also consider the ways the humans connect and coordinate to communicate meaning, and the different artifacts that are shared to mediate this process. The task of design must privilege the artifact of hypermedia as <em>maps</em>, communicatory tools for meaning and representation. The goal is spaces in which one can do many things—interactive, computational and communicative things. </p>
+
+
+<p id="0ed131a6-62f4-4b34-81ea-2361400981a6" class="">While the attention has recently been renewed, this pattern is not new.</p>
+
+
+<blockquote id="fad8fe11-8226-4bf7-a057-ce4b4477d42e" class=""><mark>The Greeks had made an art of it...the idea of using loci and imagines agentes (places and active vivid images) for dynamic, active storage of res and verba (things and words).</mark>
+<br>
+<cite><strong>Volker Grassmuck</strong></cite>
+</blockquote>
+
+
+<blockquote id="3f3b51ed-3051-44a9-be79-3387945dc1d5" class=""><mark class="highlight-teal_background">Not just hypertext, but graphics, multiple panes, 
+efficient navigation and command input, 
+interactive collaborative work, etc. 
+An entire conceptual world and world view.</mark>
+<br>
+<cite><strong>Doug Engelbart</strong></cite></blockquote>
+
+<p id="5b2ea559-d295-4c83-be66-952f4ee5a45d" class="">The closest contemporary are apps like <a href="http://museapp.com">Muse</a> and <a href="https://www.kosmik.app">Kosmik</a>. But all the new contenders I see miss on what I believe to be an essential ingredient. Hypermaps need to be able to different semantic levels within the <em>same</em> space. Projects like Pad++ and Archy by Jef Raskin allow for LoD (level of detail) mechanics, which allows you to view different levels of information in the <em>same </em>space. Instead, for the lot of apps I see offered today, the process of moving between levels is delegated to “embedded spaces”, in essence a more graphical form of hyperlinks on the web. This is not enough for me. Zooming in should reveal <em>more </em>information, and zooming out should reveal <em>more compact </em>information. </p>
+
+<p id="ab73db10-bb83-4ae1-9198-69715758b66c" class="">To send you off, I’d ask you to play around with your preferred maps app and imagine a media library underneath that. Maybe its your entertainment collection. Maybe its your notes. Maybe its your reference library, or your dashboard, or any other assemblage of your documents, files, media…your digital stuff. </p><p id="657a6739-a050-4b3e-94d5-25bcecb5cdc8" class="">Zoom in and out, and imagine what would grow and contract before you. </p>
+
+
+			</main>
+
+			<footer>
+				2022 John Knowles
+			</footer>
+
+	</body>
+
+</html>

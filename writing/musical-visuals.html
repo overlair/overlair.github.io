@@ -1,0 +1,175 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Musical Visuals </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+			<header>
+				<nav>
+						<div style="align-items: baseline; height: 100%;">
+						<a href="../" >
+							<h1  class="overlair-name"> 
+								overlair
+							</h1>
+						</a>
+							<div>
+							<a href="../about/"> 
+								about
+							</a>
+							
+							<a class = "current-nav-tab"  href="../writing/"> 
+								writing
+							</a>
+							<a href="../projects/"> 
+								projects
+							</a>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<main>
+				<h2> Musical Visuals </h2>
+				
+
+<p id="c52565a8-f652-4cfa-824c-10943d0f0d0c" class="">In his book, <em>Vom Musikalisch-Schönen, </em>Eduard Hanslick argues that music’s purpose is to communicate “tönend bewegte Formen” (<em>tonally moving forms</em>). He argues that the understanding of music is “not empty but rather filled, not mere borders in a vacuum but rather <mark class="highlight-blue"><strong>intellect shaping itself from within</strong></mark><strong>.”</strong> Geoffrey Payzant interprets this understanding as “mind giving external shape to itself from within.” </p>
+
+<p id="b3309d33-e844-499b-8df6-940738fc0bd9" class="">If the purpose of music is to interact with dynamic shapes and forms, then <em>how we can visualize these forms? </em>We’ll first explore the natures of real-world and synthetic sound, narrowing in on the forms of data we use to store and analyze synthetic (digital) sound. From these forms of digital data, we’ll begin to articulate a vision for visualizing this data as <em>moving forms </em>within a computer graphics context, exploring what the nature of these forms and shapes might be. </p>
+
+<h3 id="f3d57e8f-d459-434d-bb56-43d40ad973e3" class=""><mark class="highlight-blue">Real-World Sound</mark></h3>
+
+<p id="bfe23d82-e539-41bb-a4d4-2f399805b7a0" class="">Sounds are a constant part of the natural world, produced by vibrations in the air hitting our ear drums, sending a signal to our brain which tries to figure out what the sound is, where it’s coming from, and how close it is. </p>
+
+<p id="9cfeb149-2b8d-4fe0-8a1e-fad5f2da08d1" class="">Whether it’s our own motion relative to the things making sound, or their motion relative to ourselves, there is a constant dynamism to the sound in the world around us. Sounds get louder and softer, filtered and affected by the obstacles and conditions between our ears and their source. Each sound seems to have its own signature, such that we can identify different types of sound. </p>
+
+<p id="526ec0d6-b3f1-43f5-a3ef-96f4f4d1f2fc" class="">The end result of hearing a sound seems to have two components: a <em>source</em>, which has a location and signature; and a <em>setting</em>, which transforms the sound before it reaches our ear. Our brain puts all this together, and produces a <em>sonic map</em> describing where sounds are coming from and what is making them. </p>
+
+<h3 id="0d586571-1b1c-4305-920e-277b926ccb8c" class=""><mark class="highlight-blue">Synthetic Sound</mark></h3>
+
+<p id="8015c340-ac85-4a05-832c-94f18310daea" class="">When we listen to synthetic sounds, it is often through in-ear/over-ear headphones or over a speaker. The sound sources are relatively static, and often transmit music in a channeled nature, where different speakers play different versions of the sound. It is up to the sound coming out of the speaker to be dynamic, changing its <em>signatures</em>, <em>locations</em> and <em>settings</em>, and doing so across a number of different channels.</p>
+
+<p id="8ca2ab74-72af-4bc5-8698-d83b70a059ce" class="">To do this, we use different <em>effects</em>—like reverberations or echoes, or apply different <em>pannings</em> and <em>levels</em> to simulate different locations. These <em>effects</em> simulate some physical process, using building blocks like delays, filters and oscillators. The end result is a simulation of the <em>sonic map, </em>produced through synthetic means. </p>
+
+<h3 id="03c4346c-54cc-4119-8931-be7d38b8d2b4" class=""><mark>How is Synthetic Sound represented?</mark></h3>
+
+<p id="3734529f-18bc-40d9-bd63-7df065b00069" class="">We see two main representations of synthetic sound data: temporal and spectral.</p>
+
+<p id="54e030df-8208-4426-8101-6b34fb0afd91" class=""><mark class="highlight-blue"><strong>Temporal</strong></mark></p>
+
+<figure></figure>
+
+<p id="82bf73f8-105d-43b2-a57e-83496cde1106" class="">The temporal representation gives us samples over time, or the traditional audio waveform that we are used to. These samples correspond to the offsets of speaker positions, which is how speakers know how to reproduce the sounds stored in the data. This representation is most commonly used to store, process and stream audio. We often store and stream audio in a compressed form, while we typically use audio in a lossless (or uncompressed) form in our DAWs. We see this form of data in waveforms, and in level meters, which are representations of the uncompressed form of audio (amplitudes over time)</p>
+
+<p id="26c2a413-e64b-4aac-bbc2-753015b34dc2" class=""><mark class="highlight-blue"><strong>Spectral</strong></mark></p>
+
+<p id="a3b9b848-8ee4-4493-b6ec-86ea8b352051" class="">[ EQ, spectogram ]</p><p id="2cb7b8fb-e95a-455c-98a6-4b34582308ab" class="">Without diving in too deep, we can think of sounds as a single wave, or as the summation of a large amount of waves. We saw the first form above, and we’ll address this second form here. We know that sounds <em>sound</em> different—they have different characters, tones, pitches, timbres—and this is because they have different combinations of frequencies (waves). </p>
+
+<p id="2d9c25fb-06ce-4203-85a1-7905fb523047" class="">The spectral representation gives us pictures of these frequencies, in the form weighted bins over time (like a dynamic histogram).  Each bin represents a <em>band </em>in the frequency spectrum, and its value represents the current strength of sound at the frequency band. This representation is more data-intensive than the temporal counterpart, and so it is often only temporarily stored (to do audio work or displaying audio data within a DAW). We see this above displays of EQs and spectrograms.</p>
+
+<h3 id="adce2226-9508-46e0-8ce4-00ce1d719c73" class=""><mark class="highlight-blue">How can we reimagine?</mark></h3>
+
+<blockquote id="dd34dedc-ea5a-4f2e-96d6-9c1d7c5462a1" class="">
+	<mark>DAWs are visual processors as much as sound processors. They make several features of digital audio — amplitude, frequency, time — legible as sonic objects, coloured boxes...</mark><br>
+	<cite> <a href="https://disclaimer.org.au/contents/where-and-how-to-gather/the-hegemony-of-the-daw">Michael Terren</a> </cite>
+</blockquote>
+
+
+<blockquote id="02a37b8f-16f9-482d-8186-4766c17ef092" class="">
+	<mark>Computer-based music production involves the eyes as much as the ears. The representations in audio editors like Pro Tools and Ableton Live are purely informational, waveforms and grids and linear graphs.
+</mark><br>
+<cite><a href="https://www.ethanhein.com/wp/2013/user-interface-design-for-music-learning-software/">Ethan Hein</a></cite></blockquote>
+
+<p id="768a7018-f99a-4dfb-99c8-d7eaadd40fcd" class="">In trying to reimagine our visualization, we can approach it through the metaphor of painting. Namely, we can explore:</p>
+<ul id="07bfbbb0-46f3-40a8-bf33-58ffabf61133" class="bulleted-list">
+	<li style="list-style-type:disc">What does the canvas look like?</li>
+	<li style="list-style-type:disc">What does the paint look like?</li>
+</ul>
+
+<p id="fb3a801e-7407-4160-9bf1-89dd713d20c4" class="">In other words, what is the dimensionality of the canvas (space) that sound can occupy, and what is the form and style of the paint (matter) that sound is represented with?</p><p id="81ab5616-6e63-420e-b4cf-c5ba53ddefe7" class="">For the purposes of Sonik, we want to visualize the <em>sonic map. </em>Thus, we must be able to display:</p>
+<ul id="3cf677b6-37a3-4c7b-8cd0-aecde1c9faee" class="bulleted-list">
+	<li style="list-style-type:disc"> sound as if it’s in the natural world </li>
+	<li style="list-style-type:disc"> a variable amount of sound sources</li>
+	<li style="list-style-type:disc"> a variable amount of sound history </li>
+</ul>
+
+<p id="faeba831-f470-4b8f-9274-70dca890ed17" class="">We want to be able to represent multiple sounds through a single, encompassing view. Rather than relying on level meters and EQ displays to serve as the points of visualization within the DAW, we want the DAW to be based around a dynamic picture of sound. This involves being able to route multiple sounds into a single display, and visualizing them across the temporal spectrum, the stereo spectrum, the decibel spectrum and the frequency spectrum—essentially, we need a 4D understanding of sound to serve as our notion of its form over time (it’s “tönend bewegte Formen”, per Hanslick). </p><h3 id="57771127-31ee-47f1-8012-7b1c94c16e60" class=""><mark class="highlight-blue">Canvas</mark></h3>
+
+<p id="1e965a37-2c09-46c2-953d-48f7e8183c4f" class="">If we think of the purpose of a canvas, it is mainly to offer a space that contains the paint. It provides a certain dimensionality in which the visuals are contained. We can begin to think about how to define this dimensionality for our purposes. In our case, we want to first extend the traditional 2D canvas to a 3D canvas to capture the stereo, decibel and frequency spectrums of sound. We can map the stereo spectrum to the x-axis, working from its nature as representing left and right channels. We can map the frequency spectrum to the y-axis, capturing the “high-low” notion of frequency, as well as some of its psychoacoustic properties. We can map the decibel spectrum to the z-axis, reflecting the nature of softer sounds to feel further away and louder sounds to feel closer. </p>
+
+<figure></figure>
+
+<h3 id="4c3d45c5-689c-45f3-ac59-5905f9b9d521" class=""><mark class="highlight-blue">Paint</mark></h3>
+
+<p id="836f6d05-fdbb-48c8-96da-6a462ddca916" class="">While the canvas provides the bounding dimensionality, the paint provides the forms that fill this dimensionality. As our paint is supposed to represent sound, we ought to consider how we can derive its form from sound data. We can consider this through the metaphor of painting, exploring what it means to move a brush around and draw shapes of different sizes. </p>
+
+<p id="3ed089b1-2f22-4e78-876d-0c455a9946e2" class=""><strong>Pan</strong></p>
+
+<figure></figure>
+
+<p id="3f643a4b-0461-4bd4-9b27-10cff30333dc" class="">Digital sound is often stored in one of two forms, either as a mono or stereo signal. The ability to route sounds through different speakers allows us to define different signals, or channels, that can be routed to speakers. Commonly, we think of the situation in which we have two channels, the left and the right, which we output through headphones, or a pair of speakers. </p>
+
+<p id="80c0eb61-09d4-402c-823b-a137ae644e32" class="">Most digital music is stored in this way, as two channels. This dual-channel nature gives rise to the <em>pan </em>functionality, in which we can move a sound L←→ R across the x-axis. The offset in sound between two speakers defines where in this stereo field we hear the sound. </p><p id="bd2f4b12-3bd7-4ec9-927f-d31637c08e81" class="">We can imagine our brush going back and forth horizontally, as one channel increases in volume over the other it moves across the canvas, its position controlled by the angle of the sound in stereo space. </p>
+
+<p id="8e51a14b-5544-4a4a-8743-0a8463d50733" class=""><strong>Level</strong></p><figure id="7595a3f7-c3fa-45ab-a86e-2386a67ed12d" class="image"><a href="Musical%20Visuals%2099c62f4d33b740fab691d19d9a86603a/diagram-visualssystems-render.006.jpeg"><img style="width:528px" src="Musical%20Visuals%2099c62f4d33b740fab691d19d9a86603a/diagram-visualssystems-render.006.jpeg"/></a></figure>
+
+<p id="94644a49-7471-4e9f-bb56-3104b02c965e" class="">If we consider the <em>level</em> functionality, which can increase or lower the loudness of the sound, we can think about moving the sound further from or closer towards us. Perceptually, this is felt as the closeness of the sound to us, with louder sounds feeling closer and softer sounds feeling more distant. </p>
+
+<p id="4b178075-805f-41d9-a392-d4f29b1dab1e" class="">On a two-dimensional canvas, there are several ways we represent the depth of a three-dimensional space. Our brush goes from drawing larger shapes to drawing smaller shapes as the <em>level </em>changes<em>. </em>We may also use various techniques like overlapping, perspective, or shadowing. </p><figure id="bf6c6521-5b13-41d2-adae-0c975cd8ead2" class="image"><a href="Musical%20Visuals%2099c62f4d33b740fab691d19d9a86603a/diagram-visualssystems-render.008.jpeg"><img style="width:480px" src="Musical%20Visuals%2099c62f4d33b740fab691d19d9a86603a/diagram-visualssystems-render.008.jpeg"/></a></figure>
+
+<p id="7b53a87a-5caf-40b4-b23d-8866ea9ec101" class=""><strong>Filter</strong></p>
+
+<p id="e23333b1-240f-400e-a341-4df479aa0b2f" class="">While can think of temporal data as giving the amplitudes of the whole signal over time, and spectral data as giving the amplitudes of different frequencies at a specific point in time. We can take spectral data from temporal data, and thus, we can take different spectral “snapshots” over time, leaving us with a temporal spectral signal. </p>
+
+<p id="d7a12650-b9f4-4950-987e-096097c30257" class="">To this spectral signal, we can apply filters, which boost or cut certain bands. This allows us to shape a signal, accentuating certain aspects and diminishing others. In a typical display in a filter or EQ plugin, this histogram is represented traditionally, with bars laid out left to right—lows on the left, highs on the right. </p>
+
+<p id="c75a0d65-0a63-4916-82bd-7a24264a19eb" class="">For our purposes, we can turn this orientation 90 degrees and represent lows at the bottom, and highs at the top. We imagine a brush crafting a form in space, and the ways it might vary the shape from top to bottom, creating areas of different weight or detail.  </p>
+
+<p id="4f2ec584-0eb1-45ae-9154-689fd63a5cab" class="">Other effects, like reverb and delay, can be thought of in similar ways, with blurring or smearing, or repeated forms. </p>
+
+<figure></figure>
+
+<h2 id="d05c54a2-2d01-4758-b18c-0ead8e57ce53" class="">Sound Pictures</h2>
+
+<p id="223604ed-ea69-4b01-8b59-38aa6ca05093" class="">In creating “pictures of sound”, we want the ability to represent all the small details that make up a <em>full picture</em> of the <em>sonic map</em>. Being able to take a more detailed snapshot of a sound signal, by breaking it apart into its frequency components and taking measurements of the strength of each component, allows us to have more control over each of these details. We can loosely equate this to a painting being the product of many brushstrokes.  </p>
+
+<p id="15a2b250-6569-43a1-894b-2b1d17ab27cb" class="">Instead of using whole shapes (as in the above graphics), we can use small elements compositionally (points, lines or shapes), allowing each to take on a range of visual properties in order to encode different pieces of data. Through size, shape, color, texture, brightness, opacity, location, z-ordering, blurriness, shadow, and other visual properties, we can individually paint each data point according to independent, derived properties (like how loud is it, what source it is from, how long ago it occurred, etc).</p>
+
+<figure></figure>
+
+<p id="d63720ef-4fec-4b6b-8f40-27c1b7b479a3" class="">These visual properties allow the articulation of shape and form. By thinking compositionally, and utilizing the base component of sound—vibrating waves—we can think of drawing not whole forms, but aggregate forms. By decomposing forms into sets of points, it makes it easier to draw multiple different sources into the same display, as each unit of drawing takes up minimal space and can be independently fed data to control its display.  </p>
+
+<h2 id="a7e19a84-13c9-4134-a0dd-6458dab37523" class=""><mark class="highlight-blue">Wrap Up</mark></h2>
+
+<h3 id="bcc414d1-afd2-400e-a057-9313b732df14" class=""><mark class="highlight-blue">Goals</mark></h3>
+
+<p id="301ab5c3-d0c2-4b62-8bb2-d49ed593aa9e" class="">If we return to our goals, we wanted a display that a) visualized sound in a <em>natural environment, </em>b) visualized <em>multiple </em>sound sources and c) visualized sound <em>across time.</em> By using parameterized points—with the parameters being the x, y and z coordinates calculated from panning, frequency componentization and loudness calculations—we are able to accomplish these goals. We model the natural environment through a 3-dimensional approach to sound visualization, and we allow arbitrary sources and time to be shown by working with a small base unit that is driven by derived properties from the sound signal. </p>
+
+<h3 id="ea381225-9aa7-4b37-aeac-907a55438128" class=""><mark class="highlight-blue">Separation of Content and Style</mark></h3>
+
+<p id="18fc67ca-fe0a-4685-8b8d-1ecfe6c45f17" class="">Additionally, this model does not prescribe any visual style onto the visualization, but it leaves it open to the user to specify ranges and values for properties like size, color, and texture. This allows the engine to be flexible and extendible, and to determine the <em>content </em>while leaving space for the user to determine the <em>style</em>. Thus, in the development of a set of textures, colors and shapes that the user can choose from and assign to different sound sources, we can allow them to design and represent sound closer to how they internally view sound. </p>
+
+<h3 id="fa472f6e-c2bd-467c-aa27-e10ce9fb7a36" class=""><mark class="highlight-blue">Next Steps</mark></h3>
+
+<p id="af7cbd24-4048-4a57-a6f3-0033543b98a6" class="">The task now is to translate this model into a graphics engine. First, we must establish a data pipeline that can take a sound input and return sets of points over timesteps. Next, we’ll need to build a graphics pipeline to take these points and draw them to a screen. Finally, we’ll need to build an interface that allows for sound properties to be mapped to different graphics properties, and for the ranges and values of these to be defined. To be continued…</p>
+
+
+<figure></figure>
+
+<h2 id="dc4ddbe2-8543-46bd-9b4c-f8f86f5edb92" class="">References</h2>
+<ul id="23aaf536-3341-4495-8d06-e414396ade89" class="bulleted-list">
+	<li style="list-style-type:disc">David Gibson, <em>The Art of Mixing, </em>(<a href="https://www.youtube.com/watch?v=TEjOdqZFvhY">Link</a>)</li>
+	<li style="list-style-type:disc">Eduard Hanslick, <em>Vom Musikalisch-Schönen</em>, (<a href="https://www.gutenberg.org/files/26949/26949-h/26949-h.htm">Link</a>)</li>
+	<li style="list-style-type:disc">Internet Encyclopedia of Philosophy, <em>Eduard Hanslick, </em>(<a href="https://iep.utm.edu/hanslick/">Link</a>)</li>
+</ul>
+
+			</main>
+
+			<footer>
+				2022 John Knowles
+			</footer>
+
+	</body>
+
+</html>

@@ -1,0 +1,161 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Choosing Software Tools</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+			<header>
+				<nav>
+						<div style="align-items: baseline; height: 100%;">
+						<a href="../" >
+							<h1  class="overlair-name"> 
+								overlair
+							</h1>
+						</a>
+							<div>
+							<a href="../about/"> 
+								about
+							</a>
+							
+							<a class = "current-nav-tab"  href="../writing/"> 
+								writing
+							</a>
+							<a href="../projects/"> 
+								projects
+							</a>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<main>
+				<h2> Choosing Software Tools</h2>
+				
+				<p id="f1235901-f972-4250-822f-d8f93030f7a0" class="">Never has there been a better time to develop software. With rich access to ecosystems, frameworks, libraries, reference and learning material, developers are better equipped than every to build digital systems. </p>
+
+				<p id="ed4d11ac-2c58-4c54-b1e4-a73449190ca3" class="">And they darn well better be, for never has there been a more complex time to develop software. With so many choices—devices, frameworks, languages, architectures—its hard to know how to best spend one’s time. What’s more, the pace of change is increasing. New devices, frameworks, languages and architectural patterns emerge faster than ever. </p>
+
+				<p id="f01c7a3c-9fb3-4cdb-acbf-a2bef4b45a54" class="">To make matters worse, there are many schools of thought about how to approach this mess of optionality. How does one know where to begin, and where to end? </p>
+
+				<p id="bb983465-e1ac-4993-9eac-1b66e07742bb" class="">Let’s define a few constraints.</p>
+
+				<h1 id="3f0bbccf-cd1f-4176-b239-b8391ceda680" class="">Constraints</h1>
+
+				<p id="5b6ab891-f5c8-4a81-87ea-d2348fed6b92" class="">The choice of a software toolset is a systems design problem, and as such, we can begin by enumerating the relevant constraints. These constraints will be related to the tools themselves, the team using them, and the project—the context for their use. </p>
+
+				<h2 id="3546e887-8464-4d52-9e21-16be04d781e4" class="">Team Size</h2>
+
+				<p id="76e999e9-3389-4c2d-b0d5-d5c775b3c910" class="">The first constraint is the size of the team utilizing the tools. Often, this constraint boils down to a coverage and coordination problem. All members of a team must understand a set of tools, or at least a meaningful subset. They may know these tools during recruitment, or be educated on them during training. </p>
+
+				<p id="b45bdd7e-9706-4d0c-8155-77eadfa73632" class="">Larger teams require more coordination between developers, as there are more developers to coordinate and cover with knowledge. Because this, it is often prudent to rely on long-established technologies, and prefer standard tools and more widely known patterns.</p>
+
+				<p id="44ad974f-7d95-4b9a-960b-1ce6fdbf4256" class="">Smaller teams can get away with experimenting with newer technologies, as they often will require more leverage from their tools. This often comes with the cost of flirting with the cutting edge, and using tools that are still in development. As we’ll touch on later, these tools will have less to draw from, in terms of learning materials and community. </p>
+
+				<p id="6d316c46-e648-430b-a5af-8d3032d88b28" class="">Thus, irregardless of team size, if one highly values interacting with known quantities, relying on older tools and technologies is a wise choice. If a team decides to adopt a new technology, then the larger it is, the more difficulty it will have recruiting and educating team members.</p>
+
+				<h2 id="61a21e79-5ebc-4a07-8946-40927467f727" class="">Scope</h2>
+
+
+				<p id="3117a9e6-816e-4b5b-ac00-bfa3a067a13e" class="">The next constraint is the scope of the project. In other words, what is the size of the project? How many pieces are involved? and how simple or complex are they? </p>
+
+				<p id="82f444bb-720b-4a20-89bf-26fdee8295e9" class="">As we evaluate tools, we’ll want to compare their relative value for building each of the pieces involved in our application. We’ll want to pay attention to the different subsystems involved, and how interdependent they are. We may need different tools to handle different subsystems, or there may we situations where integrating tools is not possible. </p>
+
+				<p id="f26655db-9a82-4e77-a6e0-9457c30a84e6" class="">The size of our project will determine not only the amount of tools, but also their sophistication. If we want to dig a small hole, we use our hands or a shovel. If we want to dig a bigger one, we reach for more powerful, mechanized excavators. </p>
+
+				<p id="27f1019b-70cc-4219-b26c-1463f431dd36" class="">A good example is modern web design. Simple, static websites are made with a small number of tools, namely HTML and CSS. But as we “dig this hole bigger”, adding dynamism, componentization, interactions and more, we need to use more sophisticated tooling—static site generators, JS frameworks, non-JS framworks, etc. </p>
+
+				<p id="d8fc0dfc-a459-46da-8548-9fe1f0d60e73" class=""> Together, the amount and sophistication of our tools responds to the scope. We can approach our tool choice by trying to find the “center of mass” of our scope—the most interdependent or valuable piece(s)—and choose tools that best match these. More independent pieces either are more flexible in their choice of tool, and less valuable ones can often be handled by tools that are less suitable fits. </p>
+
+				<h2 id="98b8ab1b-d48f-4eaf-9959-82fce4d65f67" class="">Timeline</h2>
+
+				<p id="d330330b-02ba-4c8a-82ae-ccaac90c2d99" class="">While a project’s scope defines the projects ambition, the timeline grounds this ambition within a structured context—the calendar. The dynamics here should feel intuitive. A longer timeline allows for more experimentation and education, and permits a wider tool search, and a broader set of choices. A shorter timeline constricts all of these. With more time, we can learn new tools and technologies, and iterate/optimize our toolset to best fit our project. With less, we can’t, and we need to rely on what’s in front of us—well known and widely accepted tools and technologies. </p>
+
+				<h3 id="81c92e6e-9871-4be5-a75b-842c5b9da984" class="">Scope = Team Size x Timeline</h3>
+
+				<p id="200ecfd3-6a81-4065-b7d2-a012f08bd67e" class="">The above three constraints are related by the following equation: Scope = Team Size x Timeline. If we increase the scope of our project, we either need to increase our team size or timeline, or both. Smaller projects can be done by less people, and/or in less time. </p>
+
+				<h2 id="79a52d94-9f4d-4e48-b3c8-554b4120efb3" class="">Prior Art</h2>
+
+				<p id="f2addb96-faa4-4526-95d4-f56433531dac" class="">Beyond the size of a community, we’ll also want to pay attention to which tools people are using to do the same/similar things we are. As we evaluate the prior art for a given piece of software, we’ll want to inspect the types of tools each team uses, and how they combine multiple tools. </p>
+
+				<p id="24d2356e-7418-4008-b95e-8dcac31e1860" class="">We’ll also want to contextualize this prior art within it’s time period. The knowledge and tooling surrounding software rapidly changes, in all aspects of hardware, firmware, software and wetware. What has changed since this team worked on their project? What is new? What is the same? </p>
+
+				<p id="9f562c89-2421-42b4-bdc6-a109f558f828" class="">This research helps to inform our understanding of how suitable a software tool is for a certain task, or how much we might struggle to force a tool on an ill-suited problem.</p>
+
+				<h2 id="dc92669a-6cb0-4bc8-8adc-aa10b2edeec7" class="">Community Size</h2>
+
+				<p id="9c69068e-4ad8-48da-aafd-4b82aaa6872f" class="">In general, it can be said that with more people using a given tool, the more knowledge produced around it: more code, more questions, more answers. While some tight-knit communities pushback disprove this claim, the size of a community can be a valuable indicator of how much support there will be in learning/using a tool. </p>
+
+				<p id="d53f2dd5-9646-4049-9e63-8cfdceee1846" class="">However, popularity is a fickle thing, and communities around tools come and go over time. In this, it is useful to evaluate the trends surrounding a tool, and attempt to predict the future of the tool. Is the community active and growing? Or is it stale and dying?  </p>
+
+				<p id="8aaa129c-436f-42bc-aa4c-27a9bb226096" class="">While the size of the community should not be a reason to rule out a tool, it can help us sort between tools, and rank higher options that offer more in terms of support, as these will be easier to use. </p>
+
+				<p id="7d906c7a-fb51-476e-8f98-dacd66887d11" class="">The above two constraints, prior art and community size, define the available knowledge resources a team has to execute a project. Some software tools come with support teams, especially if one is paying for the rights to use the tool. But most don’t, and it is often on the strength of a volunteering community and freely-shared content that one makes sense of just how these tools work. </p>
+
+				<h2 id="2425fc67-8caf-4ce7-a361-2ea2e25d642b" class="">Integratability</h2>
+
+				<p id="aeb5d788-7d99-413a-8f76-fdd44af09fe5" class="">As a part of the “system design” problem of choosing tools, we often will use a combination of tools to construct software. In this, certain tools allow for more options as far as integrating with other tools. In this, we’ll want to pay attention to the system of tools we are creating, and the relationships between our tools.</p>
+
+				<p id="f3717156-a146-49e7-bf2d-8ecab16c53ac" class="">Some tools solve a specific problem—like writing low-level processing math or providing database functionalities—and integrate well with higher-level <em>wrappers</em>, allowing us to <em>extract</em> certain components and handle them with tools best suited to their implementation. </p>
+
+				<p id="d8db9d04-34d1-4ca4-ba80-d9147738fd72" class="">In audio applications, we often separate the DSP, or audio math, from the other layers of the software. Pure Data is a visual, node-based language for building processing systems, and offers integrations that allow its programs to be used from iOS, MacOS, Android and Windows. This allows native or web interfaces to be built on top of Pure Data “patches”, </p>
+
+				<p id="d316deee-7261-409b-9811-e22fabcaf22a" class="">Alternately, we may choose to write the DSP in a lower-level language, like C, C++ or Rust. Through bridging, we can bring all of this code inside of higher-level layers in applications, to be called by languages like Swift or Javascript. </p>
+
+				<p id="56f54b01-d319-4a2c-99da-6a0993f45296" class="">Application software brings together storage systems (like a database), processing systems (like an audio engine), and interaction systems (the user interface). It’s often the case that these all will be handled by different tools or languages.  </p>
+
+				<p id="a1af65a2-ba19-48d1-9c08-db00d7441a99" class="">The <a href="https://realm.io">Realm</a> database, developed by MongoDB to be highly integrated with web and native platforms, giving the freedom to choose multiple tools to build other components, like the UI. </p><p id="cb7e74db-dcf4-415d-9314-9b9bec6e9b54" class="">Higher <em>modularity</em> makes systems more integrable, which eases development. </p>
+
+				<h1 id="ddd2fba6-f083-4526-935b-8f48c67dba77" class="">Synthesis</h1>
+
+				<p id="96e907d0-ffde-48d5-a85b-5bca85622b2d" class="">We can next synthesize from these constraints (order and summate them) to arrive at a space for potential solutions. As an example, I’d like to use my own experience choosing software tools to develop mobile applications. One area of mobile development I’m involved with is audio applications, specifically music production applications.</p>
+
+				<p id="c9d390a0-4598-4422-a1df-7b4909af3779" class="">Due to being a team of one, I am highly constrained in some aspects. I can only learn and be familiar with so much. That being said, I have a lot of freedom in what tools I can use, as its only me learning them. Especially in the mobile world, and even more so in the mobile audio world, the technologies being made use of are new, so this doesn’t disadvantage. me too much.  In fact, I’d argue that audio applications is a segment in the app market where solo developers have one surprisingly well.</p>
+
+				<p id="c14a008c-a00f-4e24-9510-3e937ddf8478" class="">That being said, as a team of one, I can’t possibly write all the code for these systems. I need to rely on libraries/frameworks to solve a host of issues—like data storage, data management, screen management, and the audio engine infrastructure—and provide me with convenient sets of objects and APIs to make use of. </p>
+
+				<p id="2712af8c-c83f-4a49-9231-6d7fac6a106d" class="">One particular design is that of a “mini-DAW”—an app for making digital music. For this, I need a storage system for managing music project files, a interaction system to manage the creation/editing of audio, MIDI, and automation clips, as well as processor graphs (tracks of generators and effects), and a processing system to run these graphs, making use of the audio, MIDI and automation data, and to manage the interactions, providing a system of processed updates to the app’s data. </p>
+
+				<p id="43f421c9-6154-44ce-a122-25986e9d71d7" class="">This project is a large undertaking, and as such has a long timeline, which gives me the flexibility to evaluate different options, and potentially transition between tools over time. </p>
+
+				<p id="3342af1f-9ccf-46a8-84c3-72288e384e0d" class="">Audio applications come with their own set of constraints, one being the hardware they are run on. For mobile, Apple is the only consistently high-performing option, and as such, I’ve chose to constrain myself to the Apple ecosystem. </p><p id="b9fe2807-b02e-4f09-9e7b-f2324a313ec4" class="">This constraint most strongly shapes the space of choice, as it limits it to tools that will integrate with iOS applications. In this space, there are several attractive candidates for each of the main levels of storage, interaction and processing.</p>
+
+				<h2 id="909abdde-f587-434c-9da4-4817165a07c9" class="">Storage</h2><p id="ab8bf17d-fe33-42b3-94d6-93444b8308c2" class="">Storage for applications breaks down into two main camps. Traditionally, apps stored information in files, and placed these files within a file system. Recently, advances in database design have made up for some of the short-comings of a file system (lack of querying, hierarchy, speed, etc), and allow developers to interact with data in more robust ways, and to do so performantly. </p>
+
+				<p id="276d0138-eb41-4d9a-b796-c635dab91d58" class="">Often, applications take a hybrid approach, storing some data in the file system, and some in databases. This is the approach I’m taking, using the file system to store clip data, like audio or MIDI, and using a database to store project files, or the assemblages of these clips. </p>
+
+				<p id="3ae421c7-d2ac-4f49-a386-f3a15e5051d1" class="">The decision here is mainly one of database choice. My case is one of wanting local-first database access, with the option of allowing multi-device in time. I don’t want the application to  be network dependent, so the database and files must live on the device.</p>
+
+				<p id="c02c62b5-302b-4cb2-b848-58941b543e81" class="">There are two strong choices here: Core Data and Realm. Core Data is the default option, an object-oriented relational database offered by Apple. It’s not amazing, but works well enough. The most compelling third party option, Realm, comes by way of MongoDB. Realm is very easy to use, and very powerful. It takes a lot of the confusion of Core Data away, and provides excellent abstractions for writing data, and observing a single object, or a collection of them.</p><h2 id="46c3b489-8833-4160-87c2-8960652b5d9f" class="">Interaction</h2>
+
+				<p id="2201695f-960d-4030-b2e1-ecd764f7e527" class="">Because I’m sticking with Apple only, I’m ignoring cross-platform options like React Native for this project, as I have no need to transport interfaces out of Apple devices. Apple offers a number of different levels, from low to high, to construct interfaces and handle gestures. </p>
+
+				<p id="071ee56e-8646-4a91-bc06-deb1b76b826d" class="">Most prominently, it offers the UI frameworks of UIKit and SwiftUI to construct interfaces, and manage gestures. UIKit takes an imperative approach, which results in more code, but more control, while SwiftUI takes a declarative approach, which allows for terser, more shapely code, at the cost of control and customization.</p>
+
+				<p id="7116ba38-04b8-4252-b5ff-598d61222c6b" class="">As well, SwiftUI takes a reactive approach, which allows it to replace the manual updating of screen content with an automatic <em>reaction</em>to the user’s interactions, by updating when a given view’s data dependencies change. At the low level, text and graphics can be drawn with Core Graphics or Metal graphics engines, for more expressive visual displays and maximal control over the on-screen visuals.  </p>
+
+				<p id="cc271611-97c5-4d5c-b6cf-6c4e165def3a" class="">Touches can be handled at a high-level in SwiftUI, through simple callbacks, or through gesture recognizers in UIKit, which provide callbacks for tap, drag, pinch and other basic gestures, and allow for the setting of rule systems between these gestures, the manage their cancelling out or co-occurence. At the low-level, we can access raw touch values, and employ our own means of recognition or processing, and do so through a set of callbacks (began, changed, ended) as well. </p>
+
+				<h2 id="0797d7c0-2449-4bbf-b5b7-30ab02a5cfab" class="">Processing</h2>
+
+				<p id="41b4c284-5195-46ce-9802-600b5fa0495b" class="">Again, we have options for processing engines across a number of levels. At the low-level, we can make use of Core Audio itself, the lowest-level audio abstraction offered by Apple. Alternatively, we can use an abstraction built on top of Core Audio, like JUCE or AudioKit, and take advantage of a friendlier, more approachable set of primitives. In a choice between working with Swift (AudioKit) or C++ (JUCE), I’m all for Swift. For now at least, AudioKit has proved a capable engine, and a very accessible experience. Though JUCE has a larger community, AudioKit is specific to iOS, and has grown to be the de facto option for iOS audio development. </p>
+
+				<p id="62068676-0a7b-40de-82f6-11c5db9eeb66" class="">As time goes on, the desire to expand the engine with more generators or effects, or optimize it in general will require returning back down the levels, and potentially writing Rust or C/C++ code. This part of audio development is unavoidable, as the audio processing code has the largest set of constraints, being a hard real-time systems. It must meet strict timing guidelines, and so its limited to high-performing, memory-managed languages (no garbage collector).  </p>
+
+				<h1 id="f7dfbc07-a355-42cc-9df8-0da10ed4ab84" class="">Wrap up</h1>
+
+				<p id="17fba1ae-e911-41a9-a1ec-8b1b2bbfc478" class="">All in all, my process of tool selection has been one of balance, trying to account for what I can do as a solo developer, and how much I can increase the scope of my projects. As such it makes sense for me to reach for newer libraries like SwiftUI, Combine, AudioKit, and Realm, and seek to maximize the leverage from these.</p>
+
+				<p id="b5f7a7f6-e464-4fcf-a036-f72b4f9461bf" class="">In all my projects, both solo and otherwise, I’ve found that the constraints of Team Size, Scope, Timeline, Prior Art, Community Size, and Integratability have featured most prominently, dictating much of the design of the choice of software tools.</p>
+
+			</main>
+
+			<footer>
+				2022 John Knowles
+			</footer>
+
+	</body>
+
+</html>

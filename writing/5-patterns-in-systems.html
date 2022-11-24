@@ -1,0 +1,254 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>5 Patterns in Systems</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+			<header>
+				<nav>
+						<div style="align-items: baseline; height: 100%;">
+						<a href="../" >
+							<h1  class="overlair-name"> 
+								overlair
+							</h1>
+						</a>
+							<div>
+							<a href="../about/"> 
+								about
+							</a>
+							
+							<a class = "current-nav-tab"  href="../writing/"> 
+								writing
+							</a>
+							<a href="../projects/"> 
+								projects
+							</a>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<main>
+				<h2> 5 Patterns in Systems </h2>
+				
+				<div>
+					<p id="841b8736-bc1c-48bb-baa4-7b77c7cb64e9" class="">The world around us contains a lot of stuff. Scientists say the <a href="https://www.space.com/25959-how-many-stars-are-in-the-milky-way.html">Milky Way has 100 billion stars</a>, that there are <a href="https://www.pnas.org/doi/abs/10.1073/pnas.2201550119">2.5 million ants </a><a href="https://www.pnas.org/doi/abs/10.1073/pnas.2201550119"><em>per human</em></a>, and time says there will soon be 10 billion of us. Numbers like these are near impossible to conceptualize, making them very hard to reason about. How nice it is then, to speak of galaxies, colonies and populations—to speak of systems. </p>
+
+					<p id="35551e44-f6a7-41a7-9732-5925226a4f41" class="">Systems offer a necessary tool to help fight this complexity, helping us to organize both the problem and solution space. They allow us to speak about collections of things as if they were part of one super-structure. Whether it’s a group of dishes in a meal, a group of players in a team or groups of body parts in a person, systems take a group of related objects and give us a simpler way of understanding them</p>
+
+					<p id="83c4bdd8-2e1c-4ab6-ad82-ab4eb5196f97" class="">In the following, I’d like to explore 5 patterns I’ve encountered in systems: <strong>language, list, link, lifecycle</strong> and <strong>processor</strong>. </p>
+
+					<h3 id="3902418a-3fd7-427f-bf51-b83f87a244de" class="">Language</h3>
+
+
+					<blockquote>
+						<mark>
+						<span>The language used at each level of a stratified design has primitives, a means of combination, and a means of abstraction.</span>  </mark> <br>
+						<cite> <strong> Hal Abelson, Gerald Jay Sussman  </strong></cite>
+					</blockquote>
+
+					<p id="3ff40f3e-0718-40bc-b0fc-d1904cabda5f" class="">Spoken language, written language, body language, programming language, musical language—each involves its own system of simple units that combine together to form richer structures. Languages help us to form expressions, meaningful phrases of content. </p>
+
+					<p id="183e2fca-a756-45ac-a5e7-69c1ce423210" class="">Perhaps the most concise definition of language comes from Abelson and Sussman’s <a href="https://web.mit.edu/6.001/6.037/sicp.pdf">SICP</a>—that languages contain three mechanisms for expressing complex ideas: <em>Primitives, Combination, Abstraction. </em></p>
+
+					<figure>
+						<a href="../../images/system-language.png">
+							<img src="../../images/system-language.png">
+						</a>
+					</figure>
+
+					<h4 id="55d2227d-451c-4715-a4ac-2fd0ca725108" class="">Primitive</h4>
+
+					<p id="363bfa37-27b8-4309-a8f6-7666b75dc851" class="">Primitive expressions are the simplest elements in our language. These units, like words or notes, are the smallest pieces—lightweight and easy to put together. </p>
+
+					<p id="ea4406de-b105-4cbd-8eed-2afc5091c732" class="">We can think of primitives as the foundation that we build the language out of, as the expressible units that will be given order via combination and higher-order via abstraction, or as the leaves of grammar trees. </p>
+
+					<h4 id="564f30b5-2589-4a21-a514-2a4d11d0ab02" class="">Combination</h4>
+
+					<p id="2dd6970f-3837-4db6-a79b-0d8c4d066f2e" class="">The “means of combination” allows us to build compound elements from simpler ones. Often, this combination follows certain rules for which primitives can be combined with others, and in what order. </p>
+
+					<p id="c8f7a0da-ed4e-467a-b566-a17925cc6699" class="">We usually categorize our primitives into types, and establish rules for combination based on these types. In defining types and combination rules, we begin to flesh out a grammar. </p>
+
+					<h4 id="0f006c0e-3e63-42e5-aaff-4ccd50c48267" class="">Abstraction</h4>
+
+					<p id="e4349230-f227-41ff-8ec9-606c7a4c377d" class="">The “means of abstraction” enables us to take a combination, and give it an identity as a higher-order primitive, for the purpose of later re-use. In these expressions, our primitives now draw from either simple primitive units or complex abstracted expressions. </p>
+
+					<p id="2063bb8c-db50-444d-b589-60fe3f75e356" class="">The strength of language relies on this recursive nature, where parts can be built up and then treated as something simpler. Abstractions help to hide the mounting complexity of richer expressions by providing means of using fewer, simpler pieces to do construct . </p>
+
+					<p id="edfd3958-2d80-4850-8e82-bd74ab12e636" class="">In constructing or analyzing systems, we can make use of this pattern by enumerating the primitives, considering the rules for combination, and recognizing abstraction layers. Often, we will use typed units, grammars and recursion to accomplish these. For more on recursion, we’ll turn our attention to the next pattern: Lists. </p>
+
+					<h3 id="7294c1c3-bdd5-4fc4-a7a1-73bd4ff16288" class="">List</h3>
+
+
+
+					<p id="6a5a65da-91c2-40ff-b505-9c349832f9ab" class="">Lists are a fundamental organization method within storage systems, defining a linear relationship between elements. In physical storage systems, we might put lists of papers in folders, lists of folders in boxes, and lists of boxes on shelves, shelves in warehouses, warehouses on streets, and so on. In digital storage systems, we similarly use folders, nesting these in file systems. As well, we use arrays of </p>
+
+					<p id="03c16fb0-9cd2-4db9-b13f-0882d683aa6d" class="">Math offers us many ways to refer to lists: arrays, vectors, sets. Computer design pioneer Doug Engelbart <a href="https://cs.brown.edu/memex/Bush_Symposium_Interact_2.html">used the famous phrase</a> “<em>thought vectors in concept space</em>”, evoking the notion of lists in mental space. We can think of <em>vectors</em> as lists of things, and their grouping being a concept. In our homes, we can think of <em>media vectors in shelf space,</em> <em>clothes vectors in closet space, </em>or <em>spice vectors in spice-rack space. </em>Each of these arrangements allows us to categorize elements into a group, using the physical arrangement as a means of expressing something about the elements.</p>
+
+					<p id="265c6bc3-1633-401a-ac38-34b6b5618665" class="">Perhaps chief among lists’ strengths are their recursive natures. The ability to nest lists within each other (like stacking shelves on top of each other) allows us to create layers of indirection and abstraction within large collections of elements. </p>
+
+
+					<figure>
+						<a href="../../images/system-list.png">
+							<img src="../../images/system-list.png">
+						</a>
+					</figure>
+
+					<blockquote>
+						<mark>
+						<span>The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise.</span> </mark> <br>
+						<cite> <span> <strong> Edsger Dijkstra  </strong> </span></cite>
+					</blockquote>
+
+					<p id="89bebdf5-bb98-4314-8c67-396790f2dfec" class="">In general, we create new “semantic levels” to more accurately represent things. Using lists and recursion, we can form highly-expressive tree-shape. We saw this above with abstractions, which allowed us to build up trees of primitives and combinations, and then “nest” this within a richer expression, as an abstracted primitive.</p>
+
+
+					<h3 id="e6733a8b-f756-4e03-83b4-18d45f523f4b" class="">Link</h3>
+
+						<blockquote>
+							<mark>
+						<span>The human mind…operates by association. With one item in its grasp, it snaps instantly to the next that is suggested by the association of thoughts, in accordance with some intricate web of trails carried by the cells of the brain.</span>
+						</mark>
+						<br>
+						<cite>  <strong> Vannevar Bush </strong> </cite>
+					</blockquote>
+
+					<p id="b484ade0-e2d6-4c53-b959-39b47df24d16" class="">While lists allow implicit, linear groupings, links allow for explicit, non-linear associations.  While lists nest to create tree-forms, links are the basis of graphs. We can think of links as being the edges between nodes of information, forming combinations through connections and associations. Similar to Engelbart’s thoughts on <em>thought vectors</em>, another foundational figure in computing science, Vannevar Bush, used the metaphor of association (<em>thought links) </em>to describe mental processes. </p>
+
+					<p id="d40572b7-a98e-40ba-8aea-96ca44f1862a" class="">In general, links used outside of our minds make use of addressing schemes to store “references” to linked objects. Links have long been a part of literature, directing readers to authors’ notes, references, definitions and so on. Page numbers can be considered a form of addressing, and indices and tables of contents as holding links to these addresses. In card storage systems like <a href="https://zettelkasten.de/posts/overview/">Zettlekasten</a>, unique identifiers are attached to cards (units of content), and then used as a means of referencing cards, in the same way a website contains links to other sites. </p>
+
+					<p id="21f2c2a2-d8bd-49db-a3e8-ec8e0e35362d" class="">These URLs, or Universal Resource Locators, are used to create references between web documents (hyperlinks). Whereas lists bring content together, links leave content in-place, instead “pointing” at linked content using addresses. In physical systems, the link merely provided direction—the reader still had to reposition themselves around to the new content. In digital systems, we can “select” links and be “jumped” to the new content, repositioning it around us.</p>
+
+					<blockquote id="a9281735-ae70-4c3e-80ad-afa21a0b0077" class="">
+						<mark>
+							A computer language should support the concept of ”object” and provide uniform means for referring to the objects in its universe. 
+							</mark>
+								<br>
+								<cite><strong>Dan Ingalls</strong></cite></blockquote>
+
+					<p id="7fa94f7d-0f38-427b-b4bd-d755b867203a" class="">In<a href="http://worrydream.com/refs/Ingalls%20-%20Design%20Principles%20Behind%20Smalltalk.pdf"> </a><a href="http://worrydream.com/refs/Ingalls%20-%20Design%20Principles%20Behind%20Smalltalk.pdf"><em>Design Principles Behind Smalltalk</em></a><em>, </em>Dan Ingalls describes the need for objects in a computing system to have a uniform (and universal) means of reference. In more recent block storage systems like <a href="https://www.notion.so/blog/data-model-behind-notion">Notion</a>, <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUIDs</a> are used to attach unique identifiers to “blocks” of content, which allows retrieval of and reference to that content. More generally, digital gardens combine both URLs and UUIDs to create linked systems of content, each document containing a bundle of pointers to both internal blocks (UUID-addressed blocks) and external content (URL-addressed web content). This enables the creation of rich, dense “hyperbundles” of links. </p>
+
+
+					<figure>
+						<a href="../../images/system-link.png">
+							<img src="../../images/system-link.png">
+						</a>
+					</figure>
+
+					<p id="9f876487-aa26-4fb3-a8ac-1f3b27ad908c" class="">Links hold the great advantage over lists in not requiring an overarching hierarchy of nested objects. Instead, links build graph-shaped <a href="https://en.wikipedia.org/wiki/Heterarchy">heterarchies</a>, where elements have much freer association with each other. This allows for more flexible, less rigid structures. </p>
+
+					<h3 id="21fa7a36-3cb8-4db2-baf2-db601eea5b3a" class="">Lifecycle</h3>
+
+					<p id="dbc74050-48a0-4aa5-b98f-99cd8c751a7a" class="">All the information that we create, collect, share and forget about can be thought of as participating in a lifecycle—birth, life, and passing. We can map these acts into four main phases in the life of a piece of information.</p>
+
+					<ol type="1" id="3dfc70fc-dcca-4e9e-b3b7-211721ea8691" class="numbered-list" start="1">
+						<li><strong>Capture</strong>: Bring a thing into our<em> space</em></li>
+						<li><strong>Describe</strong>: Give properties to the thingand relationships with existing<em> </em>things</li>
+						<li><strong>Retrieve:</strong> Find and use the thing at a<em> </em>later time</li>
+						<li><strong>Archive</strong>: Remove the thing to a separate<em> space</em></li>
+					</ol>
+
+						<p id="fecd293f-b726-4173-91dd-702ee69fd422" class="">Various fields in <a href="https://en.wikipedia.org/wiki/Information_science">Information Science</a> help to further articulate these.</p>
+
+						<figure>
+							<a href="../../images/system-lifecycle.png">
+								<img src="../../images/system-lifecycle.png">
+							</a>
+						</figure>
+
+
+						<h4 id="06035638-4db0-4668-bcc0-ce640514b827" class="">Capture</h4>
+
+						<p id="45cca595-efac-4dfe-9e91-f3bc3ef58d2e" class=""><a href="https://en.wikipedia.org/wiki/Information_capture">Information capture</a> describes the process of intaking information, or bringing it into one’s information space. We can think of jotting down ideas, making sketches, collecting papers into folders, clipping sections from a newspaper, taking photos or recordings of our environment, or using the Share Button on our computing devices. The “capture” of this information involves more than simply acquiring, but also providing some means of initial organization so that it is properly contextualized upon entry into one’s information space. </p>
+
+						<p>
+							Upon this entry, we are faced with a number of choices about how to sort a newly captured piece of information. Do we name it? Do we add annotations or notes? Do we put it amongst similar pieces of information? This is the work of <em>descriptions</em>.
+						</p>
+
+						<h4 id="40223945-0493-4e51-8fdb-bdf245e1bf47" class="">Describe </h4>
+
+						<p id="81eaf10e-b135-4c63-85b8-2c6f64540611" class="">At a high level, we can think about architecture as the design of spaces. Good architecture takes a set of needs, and arranges a set of rooms to satisfy those needs in a purposeful and pleasing way. Similarly, <a href="https://en.wikipedia.org/wiki/Information_architecture">information architecture</a> involves the structuring of information spaces to organize large bodies of information to facilitate easy and convenient access. </p>
+
+						<p id="1666a922-b68b-4473-b276-9d33b1943593" class="">We can think of the same principles applied to one’s own information spaces. We often devise certain ways of describing items, such that we can find them among existing information, using metadata and relationships. The sorting of information into a location, in a folder, under a name, with notes or tags or links or with some other mechanism. Each represents a means of creating spaces (folder-space, namespace, tag-space) that information can occupy, be connected into, and retrieved from.</p>
+
+						<p id="1ea796be-22b3-4982-8e76-6d34e1cebe3b" class="">Each of these types of description can be thought of as a separate dimension in information space that the object lives on. We can both find objects by offering queries along these dimensions, searching in exact or fuzzy ways, and reveal similar objects, by exploring the dimensional neighborhoods around objects.</p>
+
+						<h4 id="653a5b81-1f98-4101-b144-b11e4bb40088" class="">Retrieve </h4>
+
+						<p id="2601b23f-3d2c-422f-a42a-3c024a5cdf7a" class="">We go to the trouble of connecting information in part to make it easier to find again at a later time. <a href="https://en.wikipedia.org/wiki/Information_retrieval">Information retrieval</a> involves the various methods used to search for content in our information spaces. In digital settings, we use a variety of retrieval methods—scrolling to a remembered location, browsing in a region, sorting and ordering, searching with text, filtering by date or other properties, following links, etc. </p>
+
+						<p id="b5247105-ceef-4ce8-ad20-1f389f67323f" class="">We often will attach metadata to digital assets in order to ease their retrieval. This metadata places the asset into a point along a dimension (time, color, size, alphabetical). By combining pieces of metadata, we can construct multi-dimensional arrangements of information. Provided we have the means to search/filter/sort along these dimensions, they serve to greatly aid the retrieval process by offering more methods of returning to an object, and finding similar objects. </p>
+
+					<h4 id="863527b4-a65c-40ea-89e5-b5e67de903f8" class="">Archive</h3>
+
+					<p id="527be919-9fde-497f-89ea-06f11b625c39" class="">Once a piece of information has finished being useful, it is archived in some capacity. This may involve marking it, storing it “off-site”, or discarding it entirely. <a href="https://en.wikipedia.org/wiki/Information_management">Information management</a> is concerned with the longer-running process of managing information through its entire lifecycle, ending with archival or deletion. </p>
+
+					<p id="1175eef7-e6b3-4c0d-bb30-123a47a21c15" class="">Often, we’ll not want to get rid of information, but move it out of our working space so that it doesn’t crowd the retrieval or connection of active information, keeping these processes efficient. We can think of an <em>Active | Archive</em> split in our information, with deleted information no longer existing. </p>
+
+					<h5 id="033b912c-c7c6-4207-af6c-6ce965f9ec78" class="">A CRUDdy way to close</h5>
+
+					<p id="e4c021cd-44ec-4f84-a9ef-9d491300f071" class="">The lifecycle of most digital objects follows the CRUD mode: Create, Read, Update, Delete. We can break these down into <em>existential</em> (Create, Delete), <em>transformational</em> (Update) and <em>presentational </em>(Read) and map these phases to the four we explored above
+
+						<ul>
+							<li>Create → Capture</li>
+							<li>Read → Retrieve</li>
+							<li>Update → Describe</li>
+							<li>Delete → Archive</li>
+						</ul>
+						
+
+					<h3 id="334755bb-8d89-40fe-ab3b-56da168643de" class="">Processor </h3>
+
+					<p id="7301502b-720a-42f3-9bda-88102b35ff6a" class="">The final pattern, Processor, addresses the Input-Process-Output model followed in the units of most processing systems. In these systems, we take input, apply some process, and return an output. Each <em>processing unit </em>follows the same pattern, defining inputs and outputs of different shapes and types, and a process that maps inputs → outputs. </p>
+
+					<figure>
+							<a href="../../images/system-processor-1.png">
+								<img src="../../images/system-processor-1.png">
+							</a>
+						</figure>
+
+
+					<p id="4b4e7c8d-8c8a-4104-82d8-31f25aed3f36" class="">Systems of processors, thus, are concerned with <em>process systems</em> where the outputs of one processor are fed into the inputs of another. By connecting more processors together, we can do more complex processes. Through process primitives, we can decompose tasks into manageable chunks. Through process networks, we can execute tasks of arbitrary size. This balance of decomposition and composition gives processors their strength. </p>
+
+					<p id="364b8505-b573-4bd5-85ef-4e0560a70f1d" class="">The most ready example might be baking and cooking, where in its simplest form, we take Inputs (ingredients), apply a Process (recipe), and return an Output (dish). More involved recipes might involve multiple such processes, in which dishes becoming ingredients for a higher-order dish. </p>
+
+					<p id="6adf0c5d-e84d-4f24-8e06-746fd0209218" class="">This recursive nature is fundamental to processing systems—by feeding the results from one <em>processing unit A to B</em>, we create a <em>higher-order processing units</em> that can map the inputs of A to the outputs of B. </p>
+
+					<p id="ff8b39e5-7140-46b8-a23a-0618e0a81e08" class="">In analog and digital audio processing systems, chains of processors are constructed to perform various processing tasks. A simple model of this system involves making the inputs and outputs the same type—just audio signal data—so that processors can be rearranged in any sequence, while always outputting audio. </p>
+
+					<p id="6f5b5cd1-5f9d-4a08-9278-182dbfb1dd9b" class="">Recalling our above <strong>Language </strong>pattern, we can say that these <em>processing units</em> are the primitives in a <em>processing</em> <em>language. </em>We build grammars by combining them together, and define abstractions out of higher-order processes.</p>
+
+					<figure>
+							<a href="../../images/system-processor-2.png">
+								<img src="../../images/system-processor-2.png">
+							</a>
+						</figure>
+
+					<p id="5071ade8-a0f1-47ae-abe6-5ef2f6d7fceb" class="">In order to accomplish this, we must design a) shapes for the primitives inputs and outputs, and b) rules for combination of outputs to inputs. We’ll tackle b) first, as our rules will simply be that to combine A→B, we must ensure that the outputs of A satisfy the inputs of B. That is, each input to B must be included in the outputs of A. </p>
+
+					<p id="d7bbaea0-87d6-4a8d-92f3-0a119a18bf6f" class="">In thinking about a), we can consider the case of building processor systems in software. In these situations, we can think of a <em>processing unit </em>as a function, which takes in parameters, applies operations and returns a result (or results). Both the inputs and outputs will have a <em>type, </em>which defines the shape of the corresponding memory object in the software system. By defining parameters and returns to the function, we give the inputs and outputs shapes. In physical processor systems, these shapes might be defined by the plugs and ports each device presents. </p>
+
+					<h1 id="3441e1fb-ebf7-4e14-8bd2-1d5f5fea9745" class="">Wrap Up</h1>
+
+				
+					<figure>
+							<a href="../../images/system-deleuze-guattari.png">
+								<img src="../../images/system-deleuze-guattari.png">
+							</a>
+						</figure>
+					<p id="6e4e52e4-f907-4d19-bb65-7b6ea1584653" class="">What I find most interesting about these patterns is that there is a lot of interplay between them. The basic forms of trees and graphs are present in each. These concepts of trees and graphs are addressed in many places, but perhaps most compelling for me is that of <a href="https://literariness.org/2017/04/26/the-philosophical-concept-of-rhizome/">Deleuze and Guattari</a>. </p>
+
+					<p>
+					Using “rhizome” in place of graphs, they describe the tree as the “the paradigm for knowledge and practice in the modern Western world[,]…a coherent organic system that grows vertically and progressively”.  In contrast, the rhizome is an “organism of interconnected living fibers that has no central point, no origin, and no particular form or unity or structure” (shown above). 
+
+					<p>Deleuze and Guattari argue that postmodern culture more closely resembles this form, with more freely intertwined interactions. Their argument, in itself, highlights the expressiveness of the tree and graph forms, serving as a cogent model for describing human behavior, as well as aspects of information, and much else. </p>
+
+
+			</main>
+		
+
+	</body>
+
+</html>

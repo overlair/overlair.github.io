@@ -1,0 +1,229 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Mobile Design</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+			<header>
+				<nav>
+						<div style="align-items: baseline; height: 100%;">
+						<a href="../" >
+							<h1  class="overlair-name"> 
+								overlair
+							</h1>
+						</a>
+							<div>
+							<a href="../about/"> 
+								about
+							</a>
+							
+							<a class = "current-nav-tab"  href="../writing/"> 
+								writing
+							</a>
+							<a href="../projects/"> 
+								projects
+							</a>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<main>
+				<h2> Mobile Design </h2>
+				
+				<p id="5d6e39a8-cae2-4640-873a-94ac2e71b9e2" class="">In <a href="5-patterns-in-design.html">5 Patterns in Design</a> and  <a href="5-methods-of-design.html"> Methods of Design</a>, we took a look at some lessons on how to approach engage in design, particularly interaction design. </p>
+
+				<p id="c8c979b0-bcd2-4e26-a0cf-a08e8e46879c" class="">When we speak about <em>interaction design</em>, we are speaking of a more subjective field of design  involved with digital materials and human users. Bill Moggridge provides a useful graphic (reproduced below), situating interaction design along the axes of Subjective ←→ Objective, and Physical ←→ Digital.  </p>
+
+
+				<figure>
+					<a href="../../images/mobile-design-table.png">
+						<img  src="../../images/mobile-design-table.png">
+					</a>
+					<figcaption>Source: “Designing Interactions”, Bill Moggridge</figcaption>
+				</figure>
+
+				<p id="54c29bc4-4379-448b-ac75-299ad02f64c5" class="">This positioning inside the wider design and engineering space gives context to the closeness of relationship between fields. We can see that it shares the same column as industrial, web and graphic design. We can draw design insights most strongly from these fields, noting that the major differential is that we are using digital, rather than physical materials. </p>
+
+				<p id="0a533c90-223f-4d85-ac26-79f2400cc1bf" class="">We also see that interaction design shares the same row as software engineering—a field involved with making the computer do things. Interaction design is concerned with <em>people </em>making the computer do things, so while we can draw most of our technical insights and engineering methodologies from software engineering disciplines, we’ll also need to integrate insights from more human-focused fields like Human-Computer Interaction (HCI), Ergonomics and Psychology.</p>
+
+				<h3 id="8df12935-1c59-45d3-854d-cf1aa2d918eb" class="">Mobile Constraints</h3>
+
+				<p id="1697c31c-3d54-461b-8e47-0390031ec922" class="">When we design applications, we may do so for a specific device or for a range of devices (cross-platform). In this, each platform imposes its own set of constraints, based on the size, weight, and usage patterns of the device. Here, we will explore the constraints in mobile design, drawing most strongly from Luke Wroblewski’s thoughts in<a href="https://www.lukew.com/resources/mobile_first.asp"> </a><a href="https://www.lukew.com/resources/mobile_first.asp"><em>Mobile First</em></a><em>. </em></p>
+
+				<h4 id="0e7abdc0-1b45-4533-9d21-c5c6d9e81b33" class="">Screen Size</h4>
+
+				<figure>
+					<a href="../../images/mobile-design-size.png">
+						<img  style="width: 50%" src="../../images/mobile-design-size.png">
+					</a>
+				</figure>
+
+				<p id="9c1307de-6406-421c-824b-7021e750a3be" class="">No surprise here: mobile screens are smaller than computers, often around 6 inches tall and 5 inches wide.  This presents an upper bound on what can be laid out, the readability of text and icons offers a lower bound to the size we can make our content.  With less room to put things, we make large use of push-pop navigation, popover sheets and dialogs and scrolling screens so we can create more space the user can move to.</p>
+
+				<h4 id="12a3f21a-d6e7-462f-af2d-7aec05eecd8e" class="">Responsive Layout</h4>
+
+				<figure style="width: 50%">
+					<a href="https://dribbble.com/shots/1978692-GIF-Portrait-vs-Landscape/attachments/1978692-GIF-Portrait-vs-Landscape?mode=media">
+						<img  src="https://cdn.dribbble.com/users/22691/screenshots/1978692/open-uri20150318-11-ch3xdr">
+					</a>
+					<figcaption>Source: tubik UX on Dribbble</figcaption>
+
+				</figure>
+
+				<p id="9151e59c-ca6b-4efa-a6a7-52d6706d06c3" class="">Unlike on desktops, where we can adjust window size and position, we are forced to <em>respond</em> to whatever size the screen is on mobile devices. Mobile “windows” are fixed in size—the frames of our applications will match the screen dimensions. And it will continue to match these dimensions if the device is rotated, responding to the shape of the screen in landscape and portrait orientations.</p>
+
+	
+			
+
+			<h4 id="72ad023c-8bfb-4db0-ae02-f42dedfb2a6e" class="">Portrait Mode</h4>
+				<figure style="width: 50%">
+					<a href="https://arstechnica.com/gadgets/2016/06/y-combinators-xerox-alto-restoring-the-legendary-1970s-gui-computer/">
+						<img  src="../../images/mobile-design-portrait.jpeg">
+					</a>
+					<figcaption>Source: Ars Technica</figcaption>
+
+				</figure>
+
+		
+				<p id="5e354d6e-05eb-4331-b8a1-7127a3642c78" class="">The phone is designed to be used in portrait mode, with the screen running vertically. In most other computing environments, we are used to landscape mode, where the screen is longer than it is tall. This shapes our mobile designs to be narrower or thinner than their desktop counterparts. The Alto, an early personal computer, had a screen designed on the metaphor of paper. In the same way, mobile design often has more vertical space than horizontal, encouraging up-down dominant experiences. </p>
+			
+
+			<h4 id="d4a9d487-4d7b-4875-9dac-4428500ac5a6" class="">Portable</h4>
+
+			<p id="13b36854-37ec-4015-8950-7a2a21dc5896" class="">This is no longer so unique in a world of tablets and laptops, but the size of mobile devices makes them the <em>most</em> portable, meaning they will be used in the most varied settings and be with the user for the most amount of time. Given varied locations of use, design must consider network availability and strategies to mitigate inconsistent connections (caching, local-first). Given the varied uses the mobile device takes on, we also should design to be good citizens, not using more battery or memory than is needed. What’s more, we should be cognizant of the proximity of the phone to the user in stressful or emotionally-intense situation, and take action to ensure our designs are appropriate for these moments.</p>
+
+			<h4 id="4beee823-27a0-445f-afd2-fc94c7b0be92" class="">Gestures</h4>
+				<figure style="width: 50%">
+					<a href="../../images/mobile-design-gesture.png">
+						<img  src="../../images/mobile-design-gesture.png">
+					</a>
+				</figure>
+
+
+				<p id="3699aa11-ecac-40d3-affb-040a43321210" class="">Given the touchscreen natures of phones, each system provides a set of common gestures that will be recognized by the system. These common gestures will be familiar also to the user, being made use of across the device. </p>
+
+				<p id="2263f98a-4bf6-445a-8d60-ed3d77f78a8b" class="">Common gestures include tapping, pressing, dragging and pinching. These gestures make up a sort of <em>gestural language,</em> in which certain “phrases” contain meaning to the user. For example, the user expects tapping something to have a different connotation than pinching it. </p>
+
+
+			<h4 id="bee1f23e-cbff-4ada-b2f3-e7c2213b092d" class="">Touch Size</h4>
+
+				<p id="eee22c42-ad5e-404d-a15d-835d7c389db2" class="">In order to pass a gesture to a screen object, we must ensure the object is big enough to touch. While the size of the screen and readability of content present an upper and lower bound on presentation, the touch target size enforces a lower bound on interaction. We must make the elements on screen a certain size (often 44 px) so that the touchscreen will register touches on them in consistent ways. </p>
+
+				<figure></figure>
+
+		<h4 id="d9dd96e8-0d52-421b-bcc5-53d5960af9da" class="">Finger Reach</h4>
+				<figure style="width: 50%">
+					<a href="../../images/mobile-design-reach.png">
+						<img  src="../../images/mobile-design-reach.png">
+					</a>
+				</figure>
+
+
+			<p id="05419024-837e-4289-b2dd-89e2d71907ae" class="">Given that mobile devices are handheld, our hands often adopt a cradling position, making heavy use of thumbs to interact with the screen. In this, the the ability of our fingers to reach different parts of the screen is a spectrum—the bottom of the screen is easier to reach than the top, and the side of the dominant hand is easier to reach than the other. </p>
+
+			<p id="d0319b64-254f-43cb-b564-b805ad97750c" class="">In general, this shapes the layout towards putting more heavily-used controls lower on the screen and on the opposite side to the cradling hand. </p>
+
+
+	<h3 id="4f1984b9-35f1-408d-9e21-21d1082e81ae" class="">Application Design</h3>
+
+	<p id="9400f2eb-9b49-4b88-aa8c-e740290db458" class="">When we speak about <em>mobile design</em>, we are speaking about a field of design that is a subfield of interaction design. More specifically, mobile design is a subfield of application design, within the larger field of interaction design—just as automotive design is a subfield of industrial design. </p>
+
+
+	<p> We can break down applications into two layers: the core concepts, and the frameworks used to organize these concepts. </p>
+	<figure >
+					<a href="../../images/mobile-design-core-concepts.png">
+						<img  src="../../images/mobile-design-core-concepts.png">
+					</a>
+				</figure>
+	<h4> Core Concepts </h4>
+
+	<p>
+		In order to get a high-level understanding of application design, we can address the abstract concepts involved:  Text & Graphics, Objects, Behaviors, Events, Gestures, Modes. These core concepts are not all-encompassing, but define the basic form that applications take, in terms of their information, presentations, interactions and manipulations. We can think of these as we might the amino acids in proteins—their arrangement (in space, chronologies, and hierarchies) defines their structure, and their inter-connections further refine their shape.
+		</p>
+
+
+	<h5 id="f5c9ccea-8d4e-457b-baf3-3f80448c73ac" class="">Text & Graphics</h5>
+
+	<p id="acbc039d-68e1-4f19-98af-d67647c0ccbc" class="">Fundamentally, applications serve to presentText &amp; Graphics on screen. Together, these define all the visual elements of the application, or the content. Anything shown on screen falls into onto of these two classes. </p>
+
+	<h5 id="4fd06d16-f1e3-4c08-9653-aa17d52cc584" class="">Objects</h5>
+
+	<p id="99f9bbb0-07f2-4a0b-b954-c66318fbf801" class="">We organize these primitives—Text & Graphics into Objects, which aid in storing, presenting, and handling changes to them. Not all objects are persisted in memory long-term. Some objects just live in memory while they are presented on screen. Other objects do live in memory for long spans, and some of these persist after an application is quit, stored in either the file system or a database. </p>
+
+	<h5 id="645959f5-f1dd-4088-a6c4-c1c81cc643af" class="">Behaviors</h5>
+
+	<p id="d6277bdf-40a3-4754-b044-d8083042d33e" class="">Change occurs in applications through Behaviors or logical processes. Objects adopt these Behaviors which allows for their contained information to be updated. These might things like create/delete, update properties, find (search/sort/filter), edit, navigate and so on. </p>
+
+	<h5 id="c72cae91-33d0-4590-80c3-68d57c8b25e2" class="">Events and Gestures</h5>
+
+	<p id="f33715c5-2add-419c-8b16-ba036b5eba8a" class="">We trigger Behavior by sending Events. These Events are product of Gestures, or the input from the user. When the user interacts with the screen (like when they tap a button), the application recognizes the Gestures (tap) and generates an Event (deleteButtonTapped) that triggers some Behaviors (delete this object).</p>
+
+	<h5 id="caef404f-a69c-42d3-991e-84af5e095d42" class="">Modes</h5>
+
+	<p id="4c89bac8-122a-4ead-9cc5-54c23d697e05" class="">The Modes (or Activities) of an application determine when Gestures are made available to the user, and in turn, what Behaviors they can engage in with the application in the given Modes. They serve as the top-level organization for all of the other layers (Gestures, Events, Behaviors, Objects, Text &amp; Graphics).</p>
+
+	<h4 id="28343c96-a9b5-4ed3-b1c4-4b05492cc4bb" class="">Frameworks</h4>
+
+	<p>
+		Surrounding application design, we’ve constructed a number of layers to understand how to go about organizing Modes, Gestures, Events, Behaviors, Objects, Text & Graphics We can think of these as high-level frameworks, like Apple’s Human Interface Guidelines, software frameworks, like iOS and React and architecture frameworks, like MVC and MVVM.
+	</p>
+
+
+	<h5 id="eeb601b0-b570-4fc4-a92f-6a3d3fed1576" class="">High-Level Frameworks</h5>
+
+	<p id="6a7c7a37-fbbf-4f73-9b9e-c4df3b3c920c" class="">Apple’s <a href="https://developer.apple.com/design/human-interface-guidelines/">Human Interface Guidelines</a> offers a high-level understanding of how to go about designing applications, in terms of best practices like how to arrange components on screen, build activity flows, and interact with device capabilities. Apple has released a number of guidelines over the years for both Macintosh and iOS—<a href="https://andymatuschak.org/files/papers/Apple%20Human%20Interface%20Guidelines%201987.pdf">1987</a>, <a href="http://www.multimedialab.be/doc/tech/doc_osx_hi_guidelines.pdf">1992</a>, <a href="http://interface.free.fr/Archives/Apple_HIGuidelines.pdf">1995</a>, <a href="https://blog-geofcrowl-static-images.s3.us-east-1.amazonaws.com/2020-02-17-collection-higs/APPLE-Guidelines-2005.pdf">2005</a>, <a href="https://tableless.github.io/exemplos/pdf/guidelines-interface-mobiles/MobileHIG.pdf">2011</a> to take a few. We’ll focus here on the latest <a href="https://developer.apple.com/design/human-interface-guidelines/">incarnation</a>, and the five sections it splits into. </p><p id="79c194ef-b13e-472a-8aab-13c8b997a2ee" class=""><strong>What things look like</strong></p><p id="893d4045-51e7-4068-ae21-5a3bf0329c90" class="">The Foundation section consists of what you might include in a “<a href="https://www.nngroup.com/articles/design-systems-101/">Design System</a>”—visual elements that shape the appearance of an application. These might include elements like the app icon, colors, animation and typography. In other words, the <em>style</em>, <em>motion</em>, <em>skin</em> or<em> window dressing</em> of the Text & Graphics that make up the app.</p>
+
+<p id="75c56e68-65f5-470e-8657-820db3e9e2fa" class=""><strong>How things are interacted with</strong></p>
+
+<p id="93909ed0-6e4a-4d90-835a-c646733d4183" class="">The Input section describes the various means by which the user can operate the app. We can divide these into three main sections: External Devices (pencil, keyboard, mouse, MIDI device), Touchscreen, Internal Sensors (motion, bluetooth). Together, these represent the space of Gestures the user participates in in relative to our applications. </p>
+
+<p id="d856e345-f222-4f63-ab87-f911a72374b8" class=""><strong>What things are</strong></p>
+
+<p id="5c83461e-fe1b-4fa8-866e-b6e42648ca3c" class="">The Components section describes the screen objects the user interacts with, comprised of Objects and Text &amp; Graphics. We can divide these components into 4 sections, alliteratively-chrome, content, container and control. Chrome components are system-handled screen objects, like windows, dialogs, popovers, notifications or the menu bar. Within these, we can embed content (text, image, data), containers (tables, grids, stacks, tab), and controls (menus, pickers, toggles, textfields). </p>
+
+<p id="682c6a8e-7a08-40bf-89eb-11c624930854" class=""><strong>What experiences look like</strong></p>
+
+<p id="516afb12-6fc9-4058-906e-e458ac2a14cf" class="">The Pattern section describes the interactions—the actions, tasks and experiences that are common to applications, like searching, drag and drop, and file management.  We use the core concepts of Modes, Events, and Behaviors to manage these experiences. </p>
+
+<p id="8401c444-fdf5-48c2-886a-86a0bceae364" class=""><strong>What experiences are offered </strong></p>
+
+<p id="2c9a3750-11f3-4927-aca2-36735eb56c87" class="">The Technologies section describes the set of experiences offered by the platform, including voice assistants, maps, and payment, and how we should interact with them.  These are universal capabilities offered to all apps, that offer powerful experiences out of the box. </p>
+
+<figure></figure>
+
+<h5 id="29adcfee-005a-48ce-abad-e6f67d21662d" class="">Software Frameworks</h5>
+
+<p id="0ff52db9-8228-44cc-a905-8e1fa3e4299d" class="">Software frameworks like iOS and React offer environments to build mobile and web applications, respectively. They are the actual digital material used to implement ideas from high-level and architecture frameworks. Some frameworks, like iOS, also offer integrated development environments (Xcode), which assist in tasks related to building iOS (and macOS, tvOS, watchOS) applications. Additionally, game engines like Unity and Godot offer software objects and integrated environments for game building, but increasingly can be repurposed for more general application development. </p>
+
+<p id="834b5d0f-f0c7-46e1-ab47-72aa67e836cf" class="">Each environment also includes libraries which might define their own frameworks, built out of environmental primitives, giving structured ways of building applications, like <a href="https://github.com/TextureGroup/Texture">Texture</a>, or <a href="https://github.com/pointfreeco/swift-composable-architecture">TCA </a>(The Composable Architecture). </p>
+
+<p id="ba0f153b-ad79-4210-820a-a246e2b6b8ff" class="">In all, developers are faced not only with choices along which device and platform to develop applications for, but also which approach to adopt. Luckily, (or unluckily), the choices are plentiful. </p>
+
+<h5 id="528a5d76-e922-4790-b34e-c4065d09b23d" class="">Architecture Frameworks</h5>
+
+<p id="93e7bcd6-589b-46d5-a20f-b7980b737e24" class="">Architectural frameworks help us to organize the different types of objects in our applications. The most familiar example might be <a href="https://en.wikipedia.org/wiki/Model–view–controller">MVC</a>, or Model View Controller, and its family of three-tiered architectures (<a href="https://en.wikipedia.org/wiki/Model–view–presenter">MVP</a>, <a href="https://commonsware.com/AndroidArch/pages/chap-mvi-005">MVI</a>, <a href="https://en.wikipedia.org/wiki/Model–view–viewmodel">MVVM</a>, <a href="https://guide.elm-lang.org/architecture/">MVU</a>), which replace the “Controller” in MVC with “Presenter”, “Intent”, “View Model” and “Update”. These architectures split applications into 3 layers: information, presentation, interaction. </p>
+
+<p id="6cf84f51-8b91-4aa1-939d-58807e56df08" class=""><em>Models</em> store information which <em>views</em> present. The bridging layer of interaction (<em>controller, presenter, view model, intent, update</em>) has more variety across architectures, as this layer tends to be the most involved (often containing gesture handling, logic, model updates and more). This leads to the “Massive View Controller” problem, in which we pack a lot of logic into one controller. </p>
+
+<p id="b6f7b150-7d7b-4a49-b044-959310a66e52" class="">As such, some architectures, like <a href="https://www.techtarget.com/whatis/definition/VIPER">VIPER</a> and <a href="https://github.com/pointfreeco/swift-composable-architecture">TCA</a> attempt to further decompose this layer into smaller, more focused components that handle specific tasks like data fetching, interactions, presenting screen elements or state updates. </p>
+
+<p id="583d7096-13aa-4de9-9b63-8ed4957a4f89" class=""> 
+	<a href="A-SIMPLER-Architecture.html">A SIMPLER Architecture</a> is my attempt to more clarify the View and Controller aspects of MVC. It breaks Views into units (Interfaces) and groups (Scenes), and Controllers into a message-passing system, comprised of messages (Events), channels (Pipes), responses (Logic). </p>
+
+<h3 id="79ad5bb2-3d29-4794-917b-16aa095b67f3" class="">Wrap Up</h3>
+
+
+<p id="141a29c7-7471-40db-a0e7-a94ffab9cef2" class="">Mobile design, a subfield of interaction design, melds design and engineering—Software Engineering, Human-Computer Interaction (HCI), Ergonomics and Psychology. In order to approach design in the mobile context, it is useful to engage with its constraints, namely those of Screen Size, Touch Size, Responsive Layout, Portrait Mode, Portable Finger Reach and Gestures. As well, we need to engage with the means we have of developing mobile applications—the different layers of frameworks that guide application design. </p><p id="b9e0d2ad-1621-40dd-92cc-9a4d9a84f868" class="">Taken together, these constraints, concepts and frameworks help us to approach mobile design. </p>
+
+			</main>
+
+			<footer>
+				2022 John Knowles
+			</footer>
+
+	</body>
+
+</html>

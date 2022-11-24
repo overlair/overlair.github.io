@@ -1,0 +1,134 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Synthesizing on Synths</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+			<header>
+				<nav>
+						<div style="align-items: baseline; height: 100%;">
+						<a href="../" >
+							<h1  class="overlair-name"> 
+								overlair
+							</h1>
+						</a>
+							<div>
+							<a href="../about/"> 
+								about
+							</a>
+							
+							<a class = "current-nav-tab"  href="../writing/"> 
+								writing
+							</a>
+							<a href="../projects/"> 
+								projects
+							</a>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<main>
+				<h2> Synthesizing on Synths</h2>
+				
+<p id="3718f49e-d394-4ccf-b42e-9d6f289ac06b" class="">Synths and samplers provide an exciting extension the traditional music making process, allowing for the creation of “synthetic” sounds and rhythms. Starting off as hardware boxes, synths and samplers now find themselves in an integral spot within the digital music makers workflow. Despite this (or perhaps because of this), the designs for synths and samplers have remained relatively stable for several decades. </p>
+
+<p id="a237200e-ebaf-4539-8933-2d27f631e440" class="">Before addressing a range of potential design improvements, I want to first address the nature of synths and samplers. </p>
+
+<h2 id="834100a1-f6ec-4e6d-888f-6f67dbb678da" class="">Synths</h2>
+
+<p id="6f4b08fe-d20d-473d-a2d0-62d1e2118c45" class="">Synths, or synthesizers, are sound generators that model the “signal paths” of acoustic instrument with a set of <em>wave generators,</em> and <em>effect modules. </em>Much like the strings or pipes of a traditional instrument, this path of generators and effects ”resonates<em>” </em>to produce sound. Unlike traditional instruments, the character of this resonance is highly tunable. Different wave shapes can be chosen, producing a wide variety of timbres, and different effect modules can be arranged, creating widely different transformations of the sound. </p>
+
+<p id="e44db181-bb25-4dac-8167-0a508ab08c12" class="">In general, synths tend to start with a small number of wave generators, or <em>oscillators, </em>(~1-4) and route these through a modest number of effects (~5-10). Through <em>voices</em>, each oscillator produces multiple version of it’s wave output to be processed by effects, creating richer sounds. We can detune, or <em>spread,</em>these voices to enhance this richness.</p>
+
+<p id="a2f503fa-3f95-4b30-b293-ff219c2d60a4" class="">Each oscillator takes a waveshape, ranging from simple sines to more complex waveforms, and <em>oscillates</em> it at a given frequency when triggered. This <em>oscillating frequency</em> is given to the synth as input, often in the form of MIDI notes passed in programmatically or by a live player. </p>
+
+<p id="42d32c8b-332c-456f-b4ad-ab53aea6c373" class="">These pitched waveshapes are then sent through a range of effects—filters, reverbs, delays, waveshapers—which further shapes them before being outputted as a <em>synthesized </em>waveform. The user has agency both over the incoming notes and their characters (velocity, pitch mod) and the controls of the generators and effect modules, allowing the user to modulate this shaping over time. </p>
+
+<p id="99a8215c-2826-455a-a766-c68d2c7c84bc" class="">Synths are commonly played by traditional keyboard interfaces, though now a large range of MIDI-capable device can serve as the physical interface. These may take traditional shapes, like of the violin or guitar, or more novel shapes, like that of the drum machine.</p>
+
+<p id="8248977a-4962-4577-84ab-7d32bd9d0b13" class=""> Physical synthesizer design fall into two camps, what we’ll call “fixed” and “free”. Fixed synthesizers are packaged together into a single unit in a fixed, and operated by the user as a single machine. In contrast, free synthesizers, or <em>modular </em>synths, are constructed by the user, as a patchwork of many different units. Through these modules, the synth user can construct and play many different “machines”. </p>
+
+<p id="3e6cbdc8-3ac1-41f5-97f2-8ab7f72fa7e7" class="">Digital synthesizers fall into the same camps. Many are designed with a fixed interface—screen units (like a single effects module) that cannot be moved or rearranged. Like fixed physical synths, these units may be turned on/off, and their values may be changed, but their locations within the signal path are “fixed”. </p>
+
+<p id="45da6244-3236-4a65-b760-2fc70d6c4cc8" class="">Fewer digital synths are designed as “free” interfaces. Synths built in Pure Data and Max Msp, as well as apps like Audulus or Auraglyph show off what these interfaces look like. Drawing from the “node-and-wire” model, they allow the user to build synths <em>modularly, </em>freely moving elements around the screen and signal path. </p>
+
+<p id="18ac1a96-5305-43cf-af6b-0e86e0da156b" class="">In terms of their overall shape, we can see how free synths can grow to be much “bigger”, in terms of their number of generator and effect units, than their non-modular counterparts. With this growth, extra complexity is introduced, requiring more space and more mental effort on the part of the user.  </p>
+
+<p id="a2bdc776-5860-40ad-97f4-cca7e18b23de" class="">Additionally, extra complexity makees it hard to sound good. Fixed synths narrow the choices, and situate the user in a better place to find “good sounds”. While they have fewer choices, the percentage of these choices that sound good and the controllability of these sounds is much higher than a free synth, as the user has a focused set of controls and a signal pathway that was pre-designed to perform well. </p>
+
+<h2 id="9b41a4ef-bbb1-4606-9300-ce71cec88526" class="">Sampler</h2>
+
+<p id="5e56b8bb-750e-44b0-82bb-eed2743fb277" class="">On the other hand, a sampler embellishes the <em>generator </em>aspect of the synth, focusing more on the waveforms that are generated than the ways they are effected. </p><p id="e73d9c22-f298-487e-93db-d9cc40ccc936" class="">Samplers tend to come in two varieties. They either take a single sample, or sound, and stretch it across a range of pitches, or they take a set of samples, and map them to specific pitches. These samples/sounds/waveforms are a more complete and complex versions of the waveforms used by synth oscillators. </p>
+
+<p id="2980c064-d000-4153-b332-b3ef803aa481" class="">Because it connects the user with fuller sounds, the sampler is more of a “rhythm instrument” as compared to the synth.  While the synth presents an interface for exploring variations among a range of sounds, the sampler provides an interface for more directly triggering sound content. </p>
+
+<p id="4f7d2a2d-6aca-4aab-8af9-8dfc6919382b" class="">That isn’t to say that the sampler is unconcerned with how the sounds are played back. They often offer the same controls over the note envelope as the synth—attack, delay, sustain, release—and add controls over the note playback—start position, end position, looping. Because the sampler is playing back a longer sound, rather than rapidly looping (oscillating) a very short sound like the synth, if often places some of the effects <em>before</em> the generators, allowing the user to shape individual samples with filters or transpositions. </p>
+
+<p id="ff7fb432-de55-40f0-a916-f6643b137a0d" class="">While both the sampler and synth may take in multiple waveforms, the synth often“stacks” these into a single wave, which is always triggered on every keypress, and the sampler often “spreads” these. This is not always true, though. Some synths do provide extended key-mapping schemes for custom input → oscillator triggering, and some samplers allow multiple samples to be triggered by the same key. </p>
+
+<h2 id="4af96caa-63dc-4fff-baaa-7828b5174550" class="">Is a Sampler just a Synth?</h2>
+	<p id="bb57a054-bb85-4a49-8988-b68661373a31" class="">In many ways, the sampler seems to resemble a synth in disguise, and vice versa. In principle, they both solve the same task, mapping note input to sound generation, and in practice, they use very similar means to accomplish this. </p
+
+	><p id="65184f33-29e1-4d45-9fa3-0a46a2c526c5" class="">The Mellotron encapsulates this unity well, having the interface commonly associated with a synthesizer, a keyboard and knobs, and the engine of a sampler, as the sound generated comes from pre-recorded strips of tape. </p>
+
+	<p id="b2388222-95ff-4aa3-889f-cd803d68a760" class="">Both draw from the same sets of effects, and only differ in their approach to generating sound, with synths “spinning” short content, and samplers “streaming” long content. </p>
+
+<h1 id="8b78897c-9aff-4dfd-b0ab-a1d422beb3a7" class="">Points of Redesign</h1>
+
+<p id="986b8860-5f21-44d2-9d93-ba813cab7592" class="">I’d like to spend the rest of the time addressing points at which digital synths and samplers can benefit from redesign. Most of these points are not original, having been explored in one form or another. Their packaging together, however, has not been fully explored. In particular, I want to explore 5 areas of redesign—Interfaces, Modules, Visualization, Parameters, Processes. </p>
+
+<h2 id="ae4e9b13-c304-4037-8c87-62ed3015169b" class="">Interface</h2>
+
+<p id="bc5aab82-8751-422e-af51-b8f455e0bfac" class="">We addressed above how there are two main paradigms in synth interface design: fixed and free. Both come with their tradeoffs, mainly flexibility on the part of the fixed synth, and playability on the part of the free synth. These tradeoffs are mitigated in dynamic interfaces, which can be scaled and rearranged. Through a single screen, we can offer multiple presentations of a synth’s interface, providing the user with optimal interfaces for different modes like playing, engine editing and parameter adjustment, and different tasks within these modes. </p>
+
+<p id="53cc76b1-9f83-42b4-ad34-e1f25a5f4c68" class="">In other words, digital synths and samplers should make use of both fixed and free interfaces, depending on the current need. ZUI interfaces are well suited to the large information and control spaces of synthesizers, allowing the user to rapidly switch between overarching and detail perspectives of a large structure like a synth engine. </p>
+
+<p id="94bd91e1-dedd-4fb4-89e8-a6a2b28a5db5" class="">However, we can see how these interfaces can become “rats nests” of wires and nodes. In this, progressive displays, or “semantic zooming” would ease the presentation of large synth interfaces, by reducing clutter in zoomed out modes,  and adding it back in detail when the user zooms to a location.</p>
+
+<p id="75733bc5-57e8-4abd-a175-b0bb9d8e0bd9" class="">In addition, we’ll want clearer, more focused control panels so that the user can control these large engines (sets of modules) with a small set of controls in a consistent way in a consistent place. The rearrangability of a canvas is advantageous for exploration, but is actually a disadvantage when we move to exploit it and play the engine. Having controls fixed on-screen in the same place is essential for a player growing accustomed to the instrument. The user should be provided with automatic, or simple manual ways to construct and tune these to their specific needs. </p>
+
+<h2 id="c8f3dadd-ea99-4b7a-9c42-98cb1d209478" class="">Modules</h2>
+
+<p id="f857f0bd-216f-4048-85d9-39d6b50d9c36" class="">We addressed above how similar the models of synths and samplers are, differing mainly in their natures as being “spinning” or “streaming” generators, respectively. I’d like to see hybrid synths, that make use of both “spinning” and “streaming” oscillators, and provide controls for custom mapping of each key. </p>
+
+<p id="cf6b1908-edaf-4e7a-ac7e-db584d70bc77" class="">This allows a single model to express both the traditional shapes of the “synth” and “sampler”, while also opening up the possibility to more novel forms. Synths that can make use of different waveforms based on pitch and synths that mix samples with oscillated waveforms give the user a more flexible approach to synthesizing. </p>
+
+<p id="bb216d8b-6564-4feb-92c8-6fbed0c867ee" class="">In addition to reshaping the generators, effect modules can be improved in two ways. First, the user should be able to customize the control display of each effect module. Each parameter should be able to participate in a range of controls: knobs, sliders, and area controls.  Each module should have two displays—compact and full—that can be rearranged and populated by the user, with the compact display showing a subset of controls, according to the user’s preference. </p>
+
+<p id="8560be36-1182-4b59-85a1-d9c260884047" class="">As well, effects often participate in higher-level chains. Users use specific chains for vocals, master busses, effect busses, or other specific custom processing pipelines. The user needs convenient ways of saving and reusing these. In the chaos of a canvas-based “free” interface, controlling visual clutter is paramount. Chains aid by simplifying what’s in front of the user. </p>
+
+<h2 id="c1c38cd7-0611-48d2-af76-507bb3383b16" class="">Visualization</h2>
+
+<p id="a9674a15-4c74-4cbf-b68e-10444fb77fa7" class="">In general, synths and samplers do an incredibly poor job of providing forms of visualization. This made sense at own time, as precious computing power couldn’t be wasted on “frivolous pictures”. This is no longer so with more powerful computing machines, which have powerful capabilities specifically for high-resolution graphics. We have lots of cycles to waste on showing the user more pictures of the sound. </p>
+
+<p id="4c0f3dec-cf4d-4c47-9018-86616b81ce4c" class="">Like we test circuits with ohmmeters, we should be able to sample our signal paths, seeing how sound looks at a given point, and comparing it at different points. We should be able to see multiple forms of this data, tracking different dimensions of the sound (waveform, spectrum, pitch, beats, etc). These visualizations should be dynamic, updating at high frame rates to give the user a continuous experience of “seeing the sound”.</p>
+
+<h2 id="e185aa1f-63b1-44ee-9d06-d7532b639353" class="">Parameters</h2>
+
+<p id="df16deab-0a1a-404a-9c14-99f8d327c68e" class="">Synth engines are formed by a combination of module choice and parameter choice. The user selects waveshapes, turns on/off modules and adjusts their values. The choices in each of these dimensions is how many large synths, like Nexus and Omnisphere grew to dominate segments of the synth market. By providing a rich set of presets, a user could select between &quot;patches&quot;, rather than &quot;values&quot;. </p>
+
+<p id="1c3edc91-6240-448d-84f6-fe4c2cb5aff8" class="">I think in this theres a lot of potential to leverage network and market effects, allowing community sharing and sale of these presets. This sharing of “patches”, or synth architectures opens up potentials for “remixing”, creating “patchwork quilts”.</p>
+
+
+<p id="ecbf28d7-be9e-444e-b394-5ad8a6f86492" class="">In addition, the large amount of parameters and tuning that goes into synth proceeds in a fairly unsafe environment. Like physical controls, most digital controls don’t remember where they were in the past. This lack of “version control” means that we lose previous settings when we explore a new one, unless we have some means of saving it away. Version control opens up the user to be more free, as the system will remember where they have been in parameter space, and allow them to return. </p>
+
+<h2 id="a58ea0c5-7940-4ee3-a564-27147550acf1" class="">Processes</h2>
+
+<p id="4e05e48f-656a-4f51-89fd-707b7f1d133d" class="">The actual logic underlying effect modules draws from a surprisingly small set of primitives. Due to its hard real-time constraints (it needs to run really fast), it is very limited in what types of code can be written. Often, this is just lookups, conditionals and math. While the actual specifics of these memory accesses, math and logic may be complex, the “language” is less so. </p>
+
+<p id="178056f0-9f75-4580-ae41-b8a23ae9d92c" class="">More music languages, like Faust and ChucK are emerging, proving that friendly, capable languages can be developed, and through scripts, users can access sound programmatically. There is a huge space here, both in scripts and in visual coding, to open up the innards of effect modules to user customization. On the hacky side, we can think of <a href="https://en.wikipedia.org/wiki/Circuit_bending">circuit bending</a>. On the polished side, we can think of the user developing novel delays, reverbs, shapers or custom effects. </p>
+
+<p id="d4d68bf3-f878-412e-bef4-434cdb60047f" class="">A synth platform is the perfect place for this type of coding, providing a visual “REPL” for the user to develop in. Changes in code can be immediately heard, and with visualizations, seen as well. Pure Data and Max MSP show the potential for this interaction, where changes to the “processing model” are immediately able to be experienced.</p><h1 id="2cd14a10-dcf3-4774-a58b-687b35719c20" class="">Wrap Up</h1><p id="a751f207-9d36-46f4-8bf0-13172025ffc4" class="">From the top to the bottom, there’s a lot of room for growths in the designs of synths. As there well should be, considering it is still a relatively young design. All models— interfaces, engine, graphics, controls and processing—are ripe to be improved and evolved. </p>
+
+			</main>
+
+			<footer>
+				2022 John Knowles
+			</footer>
+
+	</body>
+
+</html>
